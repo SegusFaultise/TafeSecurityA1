@@ -1,10 +1,6 @@
 #region Imports
-using SQL_WEB_APPLICATION;
-using SQL_WEB_APPLICATION.Controllers;
-using SQL_WEB_APPLICATION.Models;
-using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerUI;
-using Microsoft.AspNetCore.Mvc;
+using SQL_WEB_APPLICATION.DbAccess;
+using SQL_WEB_APPLICATION.Data;
 #endregion
 
 #region Instanciate {builder} Variable From WebApplication Class
@@ -16,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
+builder.Services.AddSingleton<IUserData, UserData>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 #endregion
