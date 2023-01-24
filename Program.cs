@@ -2,6 +2,8 @@
 using SQL_WEB_APPLICATION;
 using SQL_WEB_APPLICATION.Controllers;
 using SQL_WEB_APPLICATION.Models;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerUI;
 using Microsoft.AspNetCore.Mvc;
 #endregion
 
@@ -12,12 +14,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 #region Add Services To The Container 
 
-//builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
-//builder.Services.AddSingleton<MongoDBServices>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();
 #endregion
 
 #region Instanciate {app} Variable With Build() From {builder} variable
@@ -34,8 +34,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-//app.UseSwagger();
-//app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
