@@ -1,2 +1,58 @@
+﻿.hero-text {
+    display: none;
+}
+
 ﻿body {
+    background-image: none;
+    background-color: #d1d1d176;
+}
+
+.first-div {
+    display: inline-block;
+    width: 99.6%;
+    position: center;
+    border: solid;
+    border-color: #2a2929ff;
+    background-color: #0a0a0aff;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.login-div {
+    text-align: center;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border: solid;
+    border-radius: 5px; 
+    background-color: #0a0a0aff;
+    border-width: 2px;
+    border-color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    border-radius: 10px;
+    box-shadow: 0px 0 5px #05FA7A;
+    border-color: #05FAF5;
+    text-shadow: 0px 0 5px #05FA7A;
+    color: #05FAF5;
+}
+
+textarea {
+    margin-left: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: Arial;
+    text-shadow: 0px 0 5px #05FA7A;
+    color: #05FAF5;
+    padding-left: 10px;
 }
