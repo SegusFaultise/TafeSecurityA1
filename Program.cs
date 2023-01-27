@@ -1,6 +1,6 @@
 #region Imports
-using SQL_WEB_APPLICATION.DbAccess;
-using SQL_WEB_APPLICATION.Data;
+using SQL_WEB_APPLICATION.Context;
+using SQL_WEB_APPLICATION.Models.Repository;
 #endregion
 
 #region Instanciate {builder} Variable From WebApplication Class
@@ -12,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<ISqlDataAccess, SqlDataAccess>();
-builder.Services.AddSingleton<IUserData, UserData>();
+builder.Services.AddSingleton<DapperContext>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 #endregion
