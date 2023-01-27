@@ -16,7 +16,7 @@
                 <h2>password</h2>
                 <input type="password" placeholder="password.." id="password-input" />
                 <br />
-                <button id="login">Login</button>
+                <button id="login-button">Login</button>
                 <br />
                 <a href="@Url.Action("SignUpPage", "Home")" class="sign-up">Sign up?</a>
             </div>
@@ -32,11 +32,52 @@
 
     <script>
         $(document).ready(function loginInput() {
+            $("#login-button").click(function (event) {
 
-            var goToUrl = "@Url.Action("LoginPage", "Home")";
+                var email = $("#email-input")
+                var emailInput = $('#email-input').val()
+                var passwordInput = $('#password-input').val()
+                var emailInputClear = $('#email-input').val("");
+                var passwordInputClear = $('#password-input').val("");
+                var loginError = $("#login-error")
+                var loginError2 = $("#login-error-2")
+                var passwordParam = "&Password="
+                var emailParam = "Email=" + emailInput + passwordParam + passwordInput;
+                var goToUrl = "@Url.Action("AccountPage", "User")";
+                var loginValid = "LOGIN VALID";
+                var emailLoginInput = sessionStorage.getItem("emailBoxInput")
+                var updateButton = sessionStorage.getItem("updateButton")
 
-            $("#to-login-page").click(function (event) {
-                //window.location.href = goToUrl
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("AuthenticateLogin", "User")" + "?" + emailParam,
+                    dataType: "JSON",
+                    data: Request,
+                    success: function (data) {
+                        if (data == loginValid) {
+                            console.log(data)
+                            loginError2.hide()
+                            loginError.hide()
+                            emailInputClear
+                            passwordInputClear
+                            sessionStorage.setItem("emailInput", emailInput)
+                            sessionStorage.setItem("passwordInput", passwordInput)
+                            email.val()
+                            window.location.href = goToUrl
+                        }
+                        if (passwordInput | emailInput == "") {
+                            loginError.show()
+                            loginError2.hide()
+                        }
+
+                        else {
+                            loginError2.show()
+                            loginError.hide()
+                            emailInputClear
+                            passwordInputClear
+                        }
+                    }
+                })
             })
         })
     </script>
