@@ -22,8 +22,6 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             }
         }
 
-
-
         //public async Task<UserModel> GetUsers()
         //{
         //    var procedureName = "spUser_GetAll";

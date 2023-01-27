@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SQL_WEB_APPLICATION.Context;
+using SQL_WEB_APPLICATION.Models;
 
 namespace SQL_WEB_APPLICATION.Controllers
 {
@@ -16,10 +17,21 @@ namespace SQL_WEB_APPLICATION.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetUsers(UserModel? userModel)
         {
-            var users = await _userRepository.GetUsers();
-            return Ok(users); 
+            string message;
+            var loginStatus = _userRepository.GetUsers().Result.Where(m => m.email == userModel.email &&
+                                                                              m.password == userModel.password).FirstOrDefault();
+            if (loginStatus != null)
+            {
+                message = "LOGIN VALID";
+
+            }
+            else
+            {
+                message = "LOGIN INVALID";
+            }
+            return Json(message);
         }
     }
 }
