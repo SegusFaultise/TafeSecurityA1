@@ -33,6 +33,16 @@ namespace SQL_WEB_APPLICATION.Controllers
             return View();
         }
 
+        public IActionResult AdminLoginPage()
+        {
+            return View();
+        }
+
+        public IActionResult SignUpPage()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

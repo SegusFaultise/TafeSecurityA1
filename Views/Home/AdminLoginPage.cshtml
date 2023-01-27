@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "SignUpPage";
+    ViewData["Title"] = "AdminLoginPage";
 }
 
 <head>
@@ -10,15 +10,15 @@
     <section>
         <div class="first-div">
             <div class="login-div">
-                <h2>email</h2>
-                <input type="email" placeholder="enter your email.." id="email-input" />
+                <h2>admin email</h2>
+                <input type="email" placeholder="special email.." id="email-input" />
 
-                <h2>password</h2>
-                <input type="password" placeholder="create password.." id="password-input" />
+                <h2>admin password</h2>
+                <input type="password" placeholder="unique password.." id="password-input" />
                 <br />
-                <button id="sign-up">Sign Up</button>
+                <button id="login">Login</button>
                 <br />
-                <a href="@Url.Action("LoginPage", "Home")" class="sign-up">Login?</a>
+                <a href="@Url.Action("LoginPage", "Home")" class="sign-up">back to the lower class logins sigh</a>
             </div>
         </div>
     </section>
