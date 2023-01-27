@@ -1,5 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "LoginPage";
 }
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
+</head>
+
+<body>
+    <section>
+        <div class="first-div">
+            <div class="login-div">
+                <h2>email</h2>
+                <input type="email" placeholder="email.." id="email-input" />
+
+                <h2>password</h2>
+                <input type="password" placeholder="password.." id="password-input" />
+                <br />
+                <button id="login">Login</button>
+                <br />
+                <a class="sign-up">Sign up?</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $(document).ready(function loginInput() {
+
+            var goToUrl = "@Url.Action("LoginPage", "Home")";
+
+            $("#to-login-page").click(function (event) {
+                //window.location.href = goToUrl
+            })
+        })
+    </script>
+</body>
