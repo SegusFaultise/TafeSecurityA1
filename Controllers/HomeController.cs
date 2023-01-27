@@ -18,6 +18,21 @@ namespace SQL_WEB_APPLICATION.Controllers
             return View();
         }
 
+        public IActionResult AboutPage()
+        {
+            return View();
+        }
+
+        public IActionResult ProductsPage()
+        {
+            return View();
+        }
+
+        public IActionResult LoginPage()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
