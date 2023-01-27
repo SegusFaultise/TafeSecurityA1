@@ -1,14 +1,33 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@{
+    ViewData["Title"] = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
 <head>
-   
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css" />
 </head>
+
 <body>
     <header>
-       
+        <ul class="nav-bar">
+
+            <!--Nav Bar For Desktop-->
+            <li class="logo"> <a href="@Url.Action("")" draggable="false">Typical<br />Tech Tools</a></li>
+            <li><a class="home-button" href="@Url.Action("")" draggable="false">Home</a></li>
+            <li><a class="about-button" href="@Url.Action("AboutPage")" draggable="false">About</a></li>
+            <li><a class="products-button" href="@Url.Action("ProductsPage")" draggable="false">Products</a></li>
+            <li><a class="login-button" href="@Url.Action("LoginPage")" draggable="false">Login</a></li>
+        </ul>
     </header>
-    
-   
+
+    <div class="hero-text">
+        <h2>Welcome</h2>
+        <p>Hello there money bags, please waste it on our over priced products<br /> due to NIVIDA having a monoploy on GPUs</p>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
