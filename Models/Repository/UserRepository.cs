@@ -22,16 +22,16 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             }
         }
 
-        //public async Task<UserModel> GetUsers()
-        //{
-        //    var procedureName = "spUser_GetAll";
-        //    //var param = new DynamicParameters();
-        //    //param.Add("name", procedureName);
+        public async Task<IEnumerable<UserModel>> PostUsers()
+        {
+            var query = "INSERT INTO dbo.[User]  (email, password)" +
+                        "VALUES (@email, @password);";
 
-        //    using (var connection = _context.CreateConnection())
-        //    {
-        //        var user = await connection.QueryFirstOrDefault<UserModel>(procedureName, commandType: CommandType.StoredProcedure);
-        //    }
-        //}
+            using (var connection = _context.CreateConnection())
+            {
+                var users = await connection.QueryAsync<UserModel>(query);
+                return users;
+            }
+        }
     }
 }

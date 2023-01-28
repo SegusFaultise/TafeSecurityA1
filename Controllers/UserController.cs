@@ -33,5 +33,12 @@ namespace SQL_WEB_APPLICATION.Controllers
             }
             return Json(message);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> PostUser()
+        {
+            var add =_userRepository.GetUsers();
+            return Ok(add);
+        }
     }
 }

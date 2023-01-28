@@ -19,6 +19,8 @@
                 <button id="login-button">Login</button>
                 <br />
                 <a href="@Url.Action("SignUpPage", "Home")" class="sign-up">Sign up?</a>
+                <h4 id="login-error2">Incorect Login Details</h4>
+                <h4 id="login-error">Please fill in the fields above</h4>
             </div>
         </div>
 
@@ -40,11 +42,12 @@
                 var emailInputClear = $('#email-input').val("");
                 var passwordInputClear = $('#password-input').val("");
                 var loginError = $("#login-error")
-                var loginError2 = $("#login-error-2")
+                var loginError2 = $("#login-error2")
                 var passwordParam = "&Password="
                 var emailParam = "Email=" + emailInput + passwordParam + passwordInput;
-                var goToUrl = "@Url.Action("AccountPage", "User")";
+                var goToUrl = "@Url.Action("AccountPage", "LogedInUser")";
                 var loginValid = "LOGIN VALID";
+                var loginInvalid = "LOGIN INVALID";
                 var emailLoginInput = sessionStorage.getItem("emailBoxInput")
                 var updateButton = sessionStorage.getItem("updateButton")
 
@@ -70,7 +73,7 @@
                             loginError2.hide()
                         }
 
-                        else {
+                        else if (data == loginInvalid) {
                             loginError2.show()
                             loginError.hide()
                             emailInputClear
