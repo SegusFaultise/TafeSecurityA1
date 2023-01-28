@@ -20,8 +20,8 @@ namespace SQL_WEB_APPLICATION.Controllers
         public async Task<IActionResult> AuthenticateLogin(UserModel? userModel)
         {
             string message;
-            var loginStatus = _userRepository.GetUsers().Result.Where(m => m.email == userModel.email &&
-                                                                              m.password == userModel.password).FirstOrDefault();
+            var loginStatus = _userRepository.GetUsers().Result.Where(m => m.email.Trim() == userModel.email &&
+                                                                                          m.password.Trim() == userModel.password).FirstOrDefault();
             if (loginStatus != null)
             {
                 message = "LOGIN VALID";

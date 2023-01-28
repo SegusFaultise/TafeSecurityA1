@@ -13,7 +13,7 @@ namespace SQL_WEB_APPLICATION.Models.Repository
 
         public async Task<IEnumerable<UserModel>> GetUsers()
         {
-            var query = "SELECT REPLACE(email, password) FROM [User]";
+            var query = "SELECT email, password FROM [User]";
 
             using (var connection = _context.CreateConnection())
             {
