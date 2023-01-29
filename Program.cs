@@ -32,6 +32,15 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+builder.Services.AddDistributedMemoryCache();
+
+//builder.Services.AddSession(options =>
+//{
+//    options.IdleTimeout = TimeSpan.FromMinutes(20);
+//    options.Cookie.HttpOnly = true;
+//    options.Cookie.IsEssential = true;
+//});
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
@@ -39,6 +48,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
+//app.UseSession();
 app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",

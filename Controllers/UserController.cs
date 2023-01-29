@@ -16,7 +16,15 @@ namespace SQL_WEB_APPLICATION.Controllers
             _userRepository = userRepository;
         }
 
+        //[HttpGet]
+        //public async Task<IActionResult> CheckLoginInfo()
+        //{
+        //    var add = await _userRepository.CheckLoginInfo();
+        //    return Ok(add);
+        //}
+
         [HttpGet]
+        [Route("AuthenticateLogin")]
         public async Task<IActionResult> AuthenticateLogin(UserModel? userModel)
         {
             string message;
@@ -25,7 +33,6 @@ namespace SQL_WEB_APPLICATION.Controllers
             if (loginStatus != null)
             {
                 message = "LOGIN VALID";
-
             }
             else
             {
@@ -34,11 +41,23 @@ namespace SQL_WEB_APPLICATION.Controllers
             return Json(message);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PostUser()
+        [HttpGet]
+        [Route("CheckLogin")]
+        public async Task<IActionResult> CheckLogin(UserModel? userModel)
         {
-            var add =_userRepository.GetUsers();
-            return Ok(add);
+            string message;
+            var checkStatus = _userRepository.CheckUsers().Result.Where(m => m.email.Trim() == userModel.email &&
+                                                                                          m.password.Trim() == userModel.password).FirstOrDefault();
+            if (checkStatus != null)
+            {
+                message = "LOGIN VALID";
+                return Ok(checkStatus.user_id);
+            }
+            else
+            {
+                message = "LOGIN INVALID";
+            }
+            return Json(message);
         }
     }
 }

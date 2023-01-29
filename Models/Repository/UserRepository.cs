@@ -22,16 +22,29 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             }
         }
 
-        public async Task<IEnumerable<UserModel>> PostUsers()
+        public async Task<IEnumerable<UserModel>> CheckUsers()
         {
-            var query = "INSERT INTO dbo.[User]  (email, password)" +
-                        "VALUES (@email, @password);";
+            var query = "SELECT user_id, email, password FROM [User]";
 
             using (var connection = _context.CreateConnection())
             {
                 var users = await connection.QueryAsync<UserModel>(query);
-                return users;
+                return users.ToList();
             }
         }
+
+        //public async Task<IEnumerable<UserModel>> CheckLoginInfo()
+        //{
+        //    var query = "DECLARE @password NCHAR " +
+        //                "SELECT user_id, email, password " +
+        //                "FROM dbo.[User] " +
+        //                "WHERE password = @password; ";
+
+        //    using (var connection = _context.CreateConnection())
+        //    {
+        //        var users = await connection.QueryAsync<UserModel>(query);
+        //        return users.ToList();
+        //    }
+        //}
     }
 }
