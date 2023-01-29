@@ -21,8 +21,46 @@
                     </tr>
 
                     <tbody id="product-table">
-                        
+
                     </tbody>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="second-div">
+            <div class="get-div">
+                <h2>All Comments</h2>
+                <table>
+                    <tr id="table-info">
+                        <th>Id</th>
+                        <th>User</th>
+                        <th>Product</th>
+                        <th>Commnet</th>
+                    </tr>
+
+                    <tbody id="all-comments-table">
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="first-div">
+            <div class="get-div">
+                <h2>user Comments</h2>
+                <table>
+                    <tr id="table-info">
+                        <th>Id</th>
+                        <th>Product</th>
+                        <th>Commnet</th>
+                    </tr>
+
+                    <tbody id="user-comments-table">
+
+                    </tbody>
+
                 </table>
             </div>
         </div>
@@ -37,21 +75,61 @@
                 dataType: "JSON",
                 success: function (response) {
                     productArray = response
-                    buildTabel(productArray)
+                    buildProductTabel(productArray)
                     console.log(productArray)
                 }
             })
 
-            function buildTabel(data) {
+            function buildProductTabel(data) {
                 var table = document.getElementById('product-table')
 
                 for (var i = 0; i < data.length; i++) {
+                var buttons = `<button>delete</button>`
+
                     var row = `<tr>
                                    <td>${data[i].product_id}</td>
                                    <td>${data[i].product_name}</td>
-                                   <td>${data[i].product_price}</td>
+                                   <td>${data[i].product_price}$</td>
                                    <td>${data[i].product_description}</td>
+                                   <td class="td-button">${buttons}</td>
                                </tr>`
+
+                    table.innerHTML += row
+                }
+            }
+
+            function buildAllCommentsTabel(data) {
+                var table = document.getElementById('all-comments-table')
+
+                for (var i = 0; i < data.length; i++) {
+                var buttons = `<button>delete</button>`
+
+                    var row = `<tr>
+                                   <td>${data[i].product_id}</td>
+                                   <td>${data[i].product_name}</td>
+                                   <td>${data[i].product_price}$</td>
+                                   <td>${data[i].product_description}</td>
+                                   <td class="td-button">${buttons}</td>
+                               </tr>`
+
+                    table.innerHTML += row
+                }
+            }
+
+            function buildUserCommentsTabel(data) {
+                var table = document.getElementById('user-comments-table')
+
+                for (var i = 0; i < data.length; i++) {
+                var buttons = `<button>delete</button>`
+
+                    var row = `<tr>
+                                   <td>${data[i].product_id}</td>
+                                   <td>${data[i].product_name}</td>
+                                   <td>${data[i].product_price}$</td>
+                                   <td>${data[i].product_description}</td>
+                                   <td class="td-button">${buttons}</td>
+                               </tr>`
+
                     table.innerHTML += row
                 }
             }

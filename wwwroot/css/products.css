@@ -15,6 +15,19 @@
     border-color: #2a2929ff;
     background-color: #0a0a0aff;
     margin-top: 5%;
+    margin-bottom: -40px;
+    border-radius: 10px;
+}
+
+.second-div {
+    display: inline-block;
+    width: 99.6%;
+    position: center;
+    border: solid;
+    margin-bottom: -40px;
+    border-color: #2a2929ff;
+    background-color: #0a0a0aff;
+    margin-top: 5%;
     border-radius: 10px;
 }
 
@@ -50,7 +63,8 @@ textarea {
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 40px;
+    text-align: center;
     text-transform: uppercase;
     font-family: Arial;
     text-shadow: 0px 0 5px #05FA7A;
@@ -58,6 +72,47 @@ h2 {
     padding-left: 10px;
 }
 
-tbody {
+table {
     color: white;
+    padding-top: 40px;
+    text-align: center;
+    font-family: Arial; 
+    padding-left: 10px;
+    padding-bottom: 10px;
+    width: 90%;
+}
+
+th {
+    font-size: 20px;
+    border: solid;
+    border-width: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #05FAF5;
+}
+
+td {
+    border: solid;
+    border-width: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #2a2929ff;
+}
+
+.td-button {
+    border: none;
+    background-color: none;
+}
+
+.td-button:hover {
+    background-color:#0a0a0aff;
+    cursor: default;
+}
+
+td:hover {
+    border-color: #05FAF5;
+    background-color: #2a2929ff;
+    cursor: pointer;
 }
