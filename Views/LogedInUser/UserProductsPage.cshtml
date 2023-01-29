@@ -2,6 +2,7 @@
     ViewData["Title"] = "UserProductPage";
     Layout = "~/Views/Shared/_LogedInUser.cshtml";
 }
+@model UserModel
 
 <head>
     <link rel="stylesheet" type="text/css" href="/css/products.css"/>
@@ -12,13 +13,48 @@
         <div class="first-div">
             <div class="get-div">
                 <h2>products</h2>
-                <datagrid>
-                 
-                </datagrid>
-                <button></button>
-                <hr />
+                <table>
+                    <tr id="table-info">
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                    </tr>
+
+                    <tbody id="product-table">
+
+                    </tbody>
+                </table>
             </div>
 
         </div>
     </section>
+    <script>
+
+        var productArray = []
+
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("GetProducts", "Product")",
+
+            success: function (response){
+                productArray = response.data
+                buildTabel(productArray)
+                console.log(productArray)
+            }
+        })
+
+        function buildTabel(data) {
+            var table = $("#product-table")
+
+            for (var i = 0; i < data; i++){
+                var row = `<tr>
+                              <td>${data[i].product_id}</td>
+                              <td>${data[i].product_name}</td>
+                              <td>${data[i].product_price}</td>
+                              <td>${data[i].product_description}</td>
+                          </tr>`
+                table.innerHtml += row
+            }
+        }
+    </script>
 </body>
