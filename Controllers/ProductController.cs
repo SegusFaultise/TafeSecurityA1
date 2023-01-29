@@ -2,6 +2,7 @@
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models;
 using SQL_WEB_APPLICATION.Models.Repository;
+using System.Linq;
 
 namespace SQL_WEB_APPLICATION.Controllers
 {
@@ -18,7 +19,7 @@ namespace SQL_WEB_APPLICATION.Controllers
 
         [HttpGet]
         [Route("GetProducts")]
-        public async Task<IActionResult> GetProducts()
+        public async Task<IActionResult> GetProducts(ProductModel? productmodel)
         {
             var products = await _productRepository.GetProducts();
             return Ok(products);

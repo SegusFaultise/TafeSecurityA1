@@ -28,7 +28,7 @@ namespace SQL_WEB_APPLICATION.Models.Repository
 
             using (var connection = _context.CreateConnection())
             {
-                var users = await connection.QueryAsync<UserModel>(query);
+                var users = await connection.QueryAsync<UserModel>(query.Trim());
                 return users.ToList();
             }
         }
