@@ -49,7 +49,7 @@
 
         <div class="first-div">
             <div class="get-div">
-                <h2>user Comments</h2>
+                <h2 id="user-heading">user Comments</h2>
                 <table>
                     <tr id="table-info">
                         <th>Id</th>
@@ -79,7 +79,14 @@
 
             var userEmailBox = $("#user-email")
             var emailBox = sessionStorage.getItem("emailBox")
+
             userEmailBox.val(emailBox)
+
+            var userEmailVal = $("#user-email").val()
+
+            var header = document.getElementById('user-heading')
+            var heading = `<h2>${userEmailVal} Comments<h2/>`
+            header.innerHTML = heading
 
             var productArray = []
             var productNameArray = []
