@@ -2,6 +2,7 @@
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models;
 using SQL_WEB_APPLICATION.Models.Dto;
+using SQL_WEB_APPLICATION.Models.Repository;
 
 namespace SQL_WEB_APPLICATION.Controllers
 {
@@ -16,12 +17,23 @@ namespace SQL_WEB_APPLICATION.Controllers
             _commentRepository = commentRepository;
         }
 
-        [HttpPost]
-        [Route("postComments")]
-        public async Task<IActionResult> GetProducts([FromBody] Models.Dto.CommentModel commentModel)
+        [HttpGet]
+        [Route("GetComments")]
+        public async Task<IActionResult> GetComments()
         {
-            await _commentRepository.PostUserComments(commentModel);
-            return NoContent();
+            var comments = await _commentRepository.GetComments();
+            
+            return Ok(comments);
         }
+
+        //[HttpPost]
+        //[Route("postComments")]
+        //public async Task<IActionResult> GetProducts([FromBody]CommentModel commentModel)
+        //{
+
+        //   var createdCompany = await _commentRepository.PostUserComments(commentModel);
+
+        //   return Ok(createdCompany);
+        //}
     }
 }

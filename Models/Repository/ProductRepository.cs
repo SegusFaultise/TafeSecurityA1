@@ -20,6 +20,17 @@ namespace SQL_WEB_APPLICATION.Models.Repository
                     return users.ToList();
                 }
             }
+
+            public async Task<IEnumerable<ProductModel>> GetProductName()
+            {
+                var query = "SELECT product_name FROM [Products]";
+
+                using (var connection = _context.CreateConnection())
+                {
+                    var users = await connection.QueryAsync<ProductModel>(query);
+                    return users.ToList();
+                }
+            }
         }
     }
 

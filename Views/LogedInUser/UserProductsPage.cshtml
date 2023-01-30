@@ -62,12 +62,16 @@
                     </tbody>
 
                 </table>
+                <select id="user-drop-down-box">
+
+                </select>
             </div>
         </div>
     </section>
     <script>
 
             var productArray = []
+            var commentArray = []
 
             $.ajax({
                 type: "GET",
@@ -77,6 +81,17 @@
                     productArray = response
                     buildProductTabel(productArray)
                     console.log(productArray)
+                }
+            })
+
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetComments", "Comment")",
+                dataType: "JSON",
+                success: function (response) {
+                    commentArray = response
+                    buildUserCommentsDropDownBox(commentArray)
+                    console.log(commentArray)
                 }
             })
 
@@ -105,10 +120,10 @@
                 var buttons = `<button>delete</button>`
 
                     var row = `<tr>
-                                   <td>${data[i].product_id}</td>
-                                   <td>${data[i].product_name}</td>
-                                   <td>${data[i].product_price}$</td>
-                                   <td>${data[i].product_description}</td>
+                                   <td>${data[i].comment_id}</td>
+                                   <td>${data[i].comment_text}</td>
+                                   <td>${data[i].fk_product_id}$</td>
+                                   <td>${data[i].fk_user_id}</td>
                                    <td class="td-button">${buttons}</td>
                                </tr>`
 
@@ -129,6 +144,18 @@
                                    <td>${data[i].product_description}</td>
                                    <td class="td-button">${buttons}</td>
                                </tr>`
+
+                    table.innerHTML += row
+                }
+            }
+
+            function buildUserCommentsDropDownBox(data) {
+                var table = document.getElementById('user-drop-down-box')
+
+                for (var i = 0; i < data.length; i++) {
+
+                    var row = `<options>${data[i].product_name}</options>
+                               <options>${data[i].email}</options>`
 
                     table.innerHTML += row
                 }

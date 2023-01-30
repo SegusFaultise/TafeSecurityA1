@@ -1,6 +1,6 @@
 ﻿namespace SQL_WEB_APPLICATION.Models
 {
-    public class CommentDto
+    public class CommentModel
     {
         public int comment_id { get; set; }
         public int fk_user_id { get; set; }
