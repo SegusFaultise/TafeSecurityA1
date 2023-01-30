@@ -26,14 +26,13 @@ namespace SQL_WEB_APPLICATION.Controllers
             return Ok(comments);
         }
 
-        //[HttpPost]
-        //[Route("postComments")]
-        //public async Task<IActionResult> GetProducts([FromBody]CommentModel commentModel)
-        //{
+        [HttpPost]
+        [Route("PostComments")]
+        public async Task<IResult> PostComments([FromBody] CommentModel commentModel)
+        {
 
-        //   var createdCompany = await _commentRepository.PostUserComments(commentModel);
-
-        //   return Ok(createdCompany);
-        //}
+            await _commentRepository.PostUserComments(commentModel);
+            return Results.Ok();
+        }
     }
 }
