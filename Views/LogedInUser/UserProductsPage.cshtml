@@ -62,15 +62,27 @@
                     </tbody>
 
                 </table>
-                <select id="user-drop-down-box">
 
-                </select>
+                    <select id="product-drop-down-box">
+
+                    </select>
+                    <input id="user-email"/>
+                    <input id="comment-text" placeholder="enter your comment.."/>
+                    <input id="created-date" placeholder="enter the date.."/>
+                    <br />
+                    <button id="add-comment">Add</button>
+                    <button id="update-comment">Update</button>
             </div>
         </div>
     </section>
     <script>
 
+            var userEmailBox = $("#user-email")
+            var emailBox = sessionStorage.getItem("emailBox")
+            userEmailBox.val(emailBox)
+
             var productArray = []
+            var productNameArray = []
             var commentArray = []
 
             $.ajax({
@@ -81,17 +93,6 @@
                     productArray = response
                     buildProductTabel(productArray)
                     console.log(productArray)
-                }
-            })
-
-            $.ajax({
-                type: "GET",
-                url: "@Url.Action("GetComments", "Comment")",
-                dataType: "JSON",
-                success: function (response) {
-                    commentArray = response
-                    buildUserCommentsDropDownBox(commentArray)
-                    console.log(commentArray)
                 }
             })
 
@@ -149,13 +150,23 @@
                 }
             }
 
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetProductName", "Product")",
+                dataType: "JSON",
+                success: function (response) {
+                    productNameArray = response
+                    buildUserCommentsDropDownBox(productNameArray)
+                    console.log(productNameArray)
+                }
+            })
+
             function buildUserCommentsDropDownBox(data) {
-                var table = document.getElementById('user-drop-down-box')
+                var table = document.getElementById('product-drop-down-box')
 
                 for (var i = 0; i < data.length; i++) {
 
-                    var row = `<options>${data[i].product_name}</options>
-                               <options>${data[i].email}</options>`
+                    var row = `<option>${data[i].product_name}</option>`
 
                     table.innerHTML += row
                 }

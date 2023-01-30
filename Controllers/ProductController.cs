@@ -24,5 +24,13 @@ namespace SQL_WEB_APPLICATION.Controllers
             var products = await _productRepository.GetProducts();
             return Ok(products);
         }
+
+        [HttpGet]
+        [Route("GetProductName")]
+        public async Task<IActionResult> GetProductName(ProductModel? productmodel)
+        {
+            var products = await _productRepository.GetProductName();
+            return Ok(products);
+        }
     }
 }

@@ -33,13 +33,18 @@
     <script>
 
         $(document).ready(function getLoginInput() {
+
             var emailBox = $("#email-box")
             var passwordBox = $("#password-box")
             var updateBox = $("#update-box")
             var emailLoginInput = sessionStorage.getItem("emailInput")
             var passwordLoginInput = sessionStorage.getItem("passwordInput")
+
             passwordBox.val(passwordLoginInput)
             emailBox.val(emailLoginInput)
+
+            sessionStorage.setItem("emailBox", emailBox.val())
+            
             var passwordBoxInput = $("#password-box").val()
             var emailBoxInput = $("#email-box").val()
             var passwordParam = "password=" + passwordBoxInput

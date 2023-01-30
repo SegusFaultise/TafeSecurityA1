@@ -36,6 +36,7 @@
 }
 
 button {
+    margin-left: 30px;
     width: 120px;
     height: 30px;
     color: white;
@@ -104,6 +105,25 @@ td {
 .td-button {
     border: none;
     background-color: none;
+}
+
+select {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    width: 20vh;
+}
+
+input {
+    margin-left: 60px;
+    color: white;
+    width: 19vh;
+    background-color: transparent;
+    border-color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid;
 }
 
 .td-button:hover {

@@ -22,17 +22,6 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             }
         }
 
-        public async Task<IEnumerable<UserModel>> GetUserEmail()
-        {
-            var query = "SELECT email FROM [User]";
-
-            using (var connection = _context.CreateConnection())
-            {
-                var users = await connection.QueryAsync<UserModel>(query);
-                return users.ToList();
-            }
-        }
-
         public async Task<IEnumerable<UserModel>> CheckUsers()
         {
             var query = "SELECT user_id, email, password FROM [User]";
