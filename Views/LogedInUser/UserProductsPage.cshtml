@@ -180,19 +180,28 @@
                 }
             }
 
-            //$("#add-comment").click(function (event) {
-            //        $.ajax({
-            //        type: "POST",
-            //        url: "@Url.Action("PostComments", "Comment")",
-            //        dataType: "JSON",
-            //        success: function (response) {
-                        
-                        
-            //            commentArray = response
-            //            buildUserCommentsTabel(commentArray)
-            //            console.log(commentArray)
-            //        }
-            //    })
-            //})
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetComments", "Comment")",
+                dataType: "JSON",
+                success: function (response) {
+                    commentArray = response
+                    buildAllCommentsTabel(commentArray)
+                    console.log(commentArray)
+                }
+            })
+
+            $("#add-comment").click(function (event) {
+                    $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("PostComments", "Comment")",
+                    dataType: "JSON",
+                    success: function (response) {
+                        commentArray = response
+                        buildUserCommentsTabel(commentArray)
+                        console.log(commentArray)
+                    }
+                })
+            })
     </script>
 </body>
