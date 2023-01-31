@@ -4,7 +4,7 @@ namespace SQL_WEB_APPLICATION.Controllers
 {
     public class LogedinAdminController : Controller
     {
-        public IActionResult UserIndex()
+        public IActionResult AdminIndex()
         {
             return View();
         }

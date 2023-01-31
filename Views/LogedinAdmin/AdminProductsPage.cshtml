@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "AdminProductPage";
+    ViewData["Title"] = "AdminProductsPage";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -18,16 +18,18 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Description</th>
+                        <th>Updated date</th>
                     </tr>
 
                     <tbody id="product-table">
+
                     </tbody>
 
                 </table>
             </div>
         </div>
 
-        <div class="second-div">
+        <div class="first-div">
             <div class="get-div">
                 <h2>All Comments</h2>
                 <table>
@@ -39,6 +41,7 @@
                     </tr>
 
                     <tbody id="all-comments-table">
+
                     </tbody>
 
                 </table>
@@ -47,7 +50,7 @@
 
         <div class="first-div">
             <div class="get-div">
-                <h2 id="user-heading">users</h2>
+                <h2 id="user-heading">all users</h2>
                 <table>
                     <tr id="table-info">
                         <th>Id</th>
@@ -56,6 +59,7 @@
                     </tr>
 
                     <tbody id="users-table">
+
                     </tbody>
 
                 </table>
@@ -64,20 +68,60 @@
     </section>
     <script>
 
-        var userEmailBox = $("#user-email")
-        var emailBox = sessionStorage.getItem("emailBox")
-
-        userEmailBox.val(emailBox)
-
-        var userEmailVal = $("#user-email").val()
-
-        var header = document.getElementById('user-heading')
-        var heading = `<h2>${userEmailVal} Comments<h2/>`
-        header.innerHTML = heading
-
         var productArray = []
-        var productNameArray = []
+        var userArray = []
         var commentArray = []
+
+        function buildProductTabel(data) {
+            var table = document.getElementById('product-table')
+
+            for (var i = 0; i < data.length; i++) {
+                var buttons = `<button>delete</button>`
+
+                var row = `<tr>
+                                <td>${data[i].product_id}</td>
+                                <td>${data[i].product_name}</td>
+                                <td>${data[i].product_price}$</td>
+                                <td>${data[i].product_description}</td>
+                                <td>${data[i].updated_date}</td>
+                                <td class="td-button">${buttons}</td>
+                            </tr>`
+                table.innerHTML += row
+            }
+        }
+
+        function buildAllCommentsTabel(data) {
+            var table = document.getElementById('all-comments-table')
+
+            for (var i = 0; i < data.length; i++) {
+                var buttons = `<button>delete</button>`
+
+                var row = `<tr>
+                                <td>${data[i].comment_id}</td>
+                                <td>${data[i].email}</td>
+                                <td>${data[i].fk_product_id}</td>
+                                <td>${data[i].comment_text}</td>
+                                <td class="td-button">${buttons}</td>
+                           </tr>`
+                table.innerHTML += row
+            }
+        }
+
+        function buildUsersTabel(data) {
+            var table = document.getElementById('users-table')
+
+            for (var i = 0; i < data.length; i++) {
+                var buttons = `<button>delete</button>`
+
+                var row = `<tr>
+                                <td>${data[i].user_id}</td>
+                                <td>${data[i].email}</td>
+                                <td>${data[i].password}</td>
+                                <td class="td-button">${buttons}</td>
+                           </tr>`
+                table.innerHTML += row
+            }
+        }
 
         $.ajax({
             type: "GET",
@@ -90,58 +134,16 @@
             }
         })
 
-        function buildProductTabel(data) {
-            var table = document.getElementById('product-table')
-
-            for (var i = 0; i < data.length; i++) {
-                var buttons = `<button>delete</button>`
-
-                var row = `<tr>
-                                           <td>${data[i].product_id}</td>
-                                           <td>${data[i].product_name}</td>
-                                           <td>${data[i].product_price}$</td>
-                                           <td>${data[i].product_description}</td>
-                                           <td>${data[i].updated_date}</td>
-                                           <td class="td-button">${buttons}</td>
-                                       </tr>`
-
-                table.innerHTML += row
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("GetAllUsers", "User")",
+            dataType: "JSON",
+            success: function (response) {
+                userArray = response
+                buildUsersTabel(userArray)
+                console.log(userArray)
             }
-        }
-
-        function buildAllCommentsTabel(data) {
-            var table = document.getElementById('all-comments-table')
-
-            for (var i = 0; i < data.length; i++) {
-                var buttons = `<button>delete</button>`
-
-                var row = `<tr>
-                                           <td>${data[i].comment_id}</td>
-                                           <td>${data[i].comment_text}</td>
-                                           <td>${data[i].fk_product_id}$</td>
-                                           <td>${data[i].fk_user_id}</td>
-                                           <td class="td-button">${buttons}</td>
-                                       </tr>`
-
-                table.innerHTML += row
-            }
-        }
-
-        function buildUsersTabel(data) {
-            var table = document.getElementById('users-table')
-
-            for (var i = 0; i < data.length; i++) {
-                var buttons = `<button>delete</button>`
-
-                var row = `<tr>
-                                           <td>${data[i].user_id}</td>
-                                           <td>${data[i].email}</td>
-                                           <td>${data[i].password}</td>
-                                       </tr>`
-
-                table.innerHTML += row
-            }
-        }
+        })
 
         $.ajax({
             type: "GET",
