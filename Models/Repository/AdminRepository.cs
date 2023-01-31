@@ -22,6 +22,17 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             }
         }
 
+        public async Task<IEnumerable<AdminModel>> CheckAdmin()
+        {
+            var query = "SELECT admin_id, email, password FROM [Admin]";
+
+            using (var connection = _context.CreateConnection())
+            {
+                var users = await connection.QueryAsync<AdminModel>(query.Trim());
+                return users.ToList();
+            }
+        }
+
         public async Task PostAdmin(AdminModel adminModel)
         {
             var query = "INSERT INTO [Admin] (email, password) " +
