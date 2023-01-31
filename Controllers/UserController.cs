@@ -17,13 +17,6 @@ namespace SQL_WEB_APPLICATION.Controllers
             _userRepository = userRepository;
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> CheckLoginInfo()
-        //{
-        //    var add = await _userRepository.CheckLoginInfo();
-        //    return Ok(add);
-        //}
-
         [HttpGet]
         [Route("AuthenticateLogin")]
         public async Task<IActionResult> AuthenticateLogin(UserModel? userModel)
@@ -62,6 +55,14 @@ namespace SQL_WEB_APPLICATION.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllUsers")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _userRepository.GetAllUsers();
+            return Ok(users);
+        }
+
+        [HttpGet]
         [Route("CheckUser")]
         public async Task<IActionResult> CheckUser(UserModel? userModel)
         {
@@ -78,23 +79,5 @@ namespace SQL_WEB_APPLICATION.Controllers
             }
             return Json(message);
         }
-
-        //[HttpPost]
-        //[Route("PostUser")]
-        //public async Task<IActionResult> PostUser([FromBody] UserModel userModel)
-        //{
-        //    string message;
-        //    var checkStatus = _userRepository.CheckUsers().Result.Where(m => m.email.Trim() == userModel.email).FirstOrDefault();
-        //    if (checkStatus != null)
-        //    {
-        //        await _userRepository.PostUser(userModel);
-        //        message = "LOGIN VALID";
-        //    }
-        //    else
-        //    {
-        //        message = "LOGIN INVALID";
-        //    }
-        //    return Json(message);
-        //}
     }
 }

@@ -17,7 +17,7 @@ namespace SQL_WEB_APPLICATION.Models.Repository
 
             using (var connection = _context.CreateConnection())
             {
-                var admin = await connection.QueryAsync<AdminModel>(query);
+                var admin = await connection.QueryAsync<AdminModel>(query.Trim());
                 return admin.ToList();
             }
         }

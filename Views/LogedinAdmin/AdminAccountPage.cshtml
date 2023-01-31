@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "AdminAccountPage";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
+</head>
+
+<body>
+    <section>
+        <div class="first-div">
+            <div class="login-div">
+                <h2>email</h2>
+                <input type="email" id="email-box" />
+                <h2>password</h2>
+                <input type="password" id="password-box" />
+                <h2>Id</h2>
+                <input type="text" id="user-id-box" />
+                <br />
+                <br />
+                <input type="update-box" placeholder="update email.." id="email-input" />
+                <br />
+                <button id="Update-button">Update</button>
+                <br />
+                <button id="logout-button">Logout</button>
+                <br />
+                <button id="delete-button">Delete</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        $(document).ready(function getLoginInput() {
+
+            var emailBox = $("#email-box")
+            var passwordBox = $("#password-box")
+            var updateBox = $("#update-box")
+            var emailLoginInput = sessionStorage.getItem("emailInput")
+            var passwordLoginInput = sessionStorage.getItem("passwordInput")
+
+            passwordBox.val(passwordLoginInput)
+            emailBox.val(emailLoginInput)
+
+            sessionStorage.setItem("emailBox", emailBox.val())
+
+            var passwordBoxInput = $("#password-box").val()
+            var emailBoxInput = $("#email-box").val()
+            var passwordParam = "password=" + passwordBoxInput
+            var openUrlHomePage = "@Url.Action("", "Home")"
+            var openUrlLoginPage = "@Url.Action("LoginPage", "Home")"
+            var closeUrl = "@Url.Action("AccountPage", "User")"
+
+            /*
+               when the delete button is clicked an ajax DELETE request is activated
+               that will delete the signed in account, then the user will be brought back to the
+               login page.
+            */
+
+            $("#delete-account-button").click(function (event) {
+                if (window.confirm("Are you sure you want to delete your account?")) {
+                    $.ajax({
+                        type: "DELETE",
+                        url: "@Url.Action("DeleteAccount", "Account")" + "?" + passwordParam,
+                        dataType: "JSON",
+                        data: Request,
+                        success: function (data) {
+                            console.log(data)
+                            window.close()
+                            window.open(openUrlHomePage)
+                        }
+                    })
+                }
+            })
+
+            /*
+                when the update button is clicked an ajax PUT request is activated
+                that will update the signed in accounts email, then the user will be brought back to the
+                login page.
+            */
+
+            $("#update-button").click(function (event) {
+                var updateBoxInput = $("#update-box").val()
+                var emailParam = "&email=" + updateBoxInput
+                var updateError = $("#update-error")
+                var updateError2 = $("#update-error2")
+                var updateParam = passwordParam + emailParam
+                var updateMessageError = "UPDATE ERROR"
+                var updateMessageComplete = "UPDATE COMPLETE"
+                if (updateBox.val() != "") {
+                    updateError.hide()
+
+                    $.ajax({
+                        type: "PUT",
+                        url: "@Url.Action("UpdateAccount", "Account")" + "?" + updateParam,
+                        dataType: "JSON",
+                        data: Request,
+                        success: function (data) {
+                            console.log(data)
+                            if (data == updateMessageComplete) {
+                                console.log(data)
+                                updateBox.val("")
+                                emailBox.val(updateBoxInput)
+                                window.location.href = openUrlLoginPage
+                            }
+                            if (data == updateMessageError) {
+                                updateError2.show()
+                                updateError.hide()
+                            }
+                        }
+                    })
+                }
+                else {
+                    updateError.show()
+                    updateError2.hide()
+                }
+            })
+
+            /*
+               when the logout button is clicked the user will be brought back to the
+               login page.
+            */
+
+            $("#logout-button").click(function (event) {
+                if (window.confirm("Are you sure you want to log out?")) {
+                    window.location.href = openUrlHomePage
+                }
+            })
+
+            var emailInput = $('#email-box').val()
+            var passwordInput = $('#password-box').val()
+            var passwordParam = "&Password="
+            var loginInvalid = "LOGIN INVALID";
+            var emailParam = "Email=" + emailInput + passwordParam + passwordInput;
+
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("CheckLogin", "User")" + "?" + emailParam,
+                dataType: "JSON",
+                data: Request,
+                success: function (data) {
+                    console.log(data)
+                    $("#user-id-box").val(data)
+                }
+            })
+        })
+    </script>
+</body>
