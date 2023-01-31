@@ -18,6 +18,13 @@
     border-radius: 10px;
 }
 
+.login-good {
+    text-transform: uppercase;
+    font-family: Arial;
+    text-shadow: 0px 0 5px #73FF00;
+    color: #00FF0C;
+}
+
 .login-div {
     text-align: center;
 }

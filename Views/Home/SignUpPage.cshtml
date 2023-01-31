@@ -19,17 +19,51 @@
                 <button id="sign-up">Sign Up</button>
                 <br />
                 <a href="@Url.Action("LoginPage", "Home")" class="sign-up">Login?</a>
+                <h4 id="login-error2">User allready created</h4>
+                <h4 class="login-good" id="login-good">Account created</h4>
             </div>
         </div>
     </section>
 
     <script>
         $(document).ready(function loginInput() {
+            $("#sign-up").click(function (event) {
 
-            var goToUrl = "@Url.Action("LoginPage", "Home")";
+                var email = $("#email-input")
+                var emailInput = $('#email-input').val()
+                var passwordInput = $('#password-input').val()
+                var emailInputClear = $('#email-input').val("");
+                var passwordInputClear = $('#password-input').val("");
+                var loginGood = $("#login-good")
+                var loginError2 = $("#login-error2")
+                var passwordParam = "&Password="
+                var emailParam = "Email=" + emailInput + passwordParam + passwordInput;
+                var loginValid = "LOGIN VALID";
+                var loginInvalid = "LOGIN INVALID";
 
-            $("#to-login-page").click(function (event) {
-                //window.location.href = goToUrl
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("CheckUser", "User")" + "?" + emailParam,
+                    dataType: "JSON",
+                    data: Request,
+                    success: function (data) {
+                        if (data == loginValid) {
+                            console.log(data)
+                            loginError2.hide()
+                            loginGood.show()
+                            emailInputClear
+                            passwordInputClear
+                            email.val()
+                        }
+
+                        else if (data == loginInvalid) {
+                            loginError2.show()
+                            loginError.hide()
+                            emailInputClear
+                            passwordInputClear
+                        }
+                    }
+                })
             })
         })
     </script>

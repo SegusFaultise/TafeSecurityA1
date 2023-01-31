@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models;
+using SQL_WEB_APPLICATION.Models.Repository;
 
 namespace SQL_WEB_APPLICATION.Controllers
 {
@@ -59,5 +60,41 @@ namespace SQL_WEB_APPLICATION.Controllers
             }
             return Json(message);
         }
+
+        [HttpGet]
+        [Route("CheckUser")]
+        public async Task<IActionResult> CheckUser(UserModel? userModel)
+        {
+            string message;
+            var checkStatus = _userRepository.CheckUsers().Result.Where(m => m.email.Trim() == userModel.email).FirstOrDefault();
+            if (checkStatus == null)
+            {
+                message = "LOGIN VALID";
+                await _userRepository.PostUser(userModel);
+            }
+            else
+            {
+                message = "LOGIN INVALID";
+            }
+            return Json(message);
+        }
+
+        //[HttpPost]
+        //[Route("PostUser")]
+        //public async Task<IActionResult> PostUser([FromBody] UserModel userModel)
+        //{
+        //    string message;
+        //    var checkStatus = _userRepository.CheckUsers().Result.Where(m => m.email.Trim() == userModel.email).FirstOrDefault();
+        //    if (checkStatus != null)
+        //    {
+        //        await _userRepository.PostUser(userModel);
+        //        message = "LOGIN VALID";
+        //    }
+        //    else
+        //    {
+        //        message = "LOGIN INVALID";
+        //    }
+        //    return Json(message);
+        //}
     }
 }

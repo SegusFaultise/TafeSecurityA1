@@ -33,6 +33,15 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             }
         }
 
-        
+        public async Task PostUser(UserModel userModel)
+        {
+            var query = "INSERT INTO [User] (email, password) " +
+                        "VALUES (@email, @password) ";
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query.Trim(), userModel);
+            }
+        }
     }
 }

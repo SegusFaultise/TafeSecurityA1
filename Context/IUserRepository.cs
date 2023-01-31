@@ -6,6 +6,6 @@ namespace SQL_WEB_APPLICATION.Context
     {
         public Task<IEnumerable<UserModel>> GetUsers();
         public Task<IEnumerable<UserModel>> CheckUsers();
-        //public Task<IEnumerable<UserModel>> CheckLoginInfo();
+        public Task PostUser(UserModel userModel);
     }
 }
