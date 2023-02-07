@@ -12,6 +12,8 @@ header {
     max-width: 100%;
     height: 60px;
     border: solid;
+    border-left: none;
+    border-right: none; 
     border-color: white;
     border-top: none;
     margin-left: -10px;
