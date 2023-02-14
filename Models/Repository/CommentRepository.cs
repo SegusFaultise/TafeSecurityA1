@@ -39,9 +39,9 @@ namespace SQL_WEB_APPLICATION.Models.Repository
         #region Gets all of the comments and displays them in a view
         public async Task<IEnumerable<CommentModel>> GetComments()
         {
-            string query = "SELECT Comments.comment_id, Comments.comment_text, Comments.created_date, " +
+            string query = "SELECT Comments.comment_id, Comments.comment_text, Comments.created_date, Comments.email, " +
                                      "Products.product_name " +
-                                     "FROM Products  INNER JOIN " +
+                                     "FROM Products INNER JOIN " +
                                      "Comments ON Products.product_id = Comments.fk_product_id ";
 
             using (var connection = _context.CreateConnection())

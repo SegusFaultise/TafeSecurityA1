@@ -36,7 +36,8 @@
                         <th>Id</th>
                         <th>User</th>
                         <th>Product</th>
-                        <th>Commnet</th>
+                        <th>Comment</th>
+                        <th>Date</th>
                     </tr>
 
                     <tbody id="all-comments-table">
@@ -55,6 +56,7 @@
                         <th>Id</th>
                         <th>Product</th>
                         <th>Commnet</th>
+                        <th>Date</th>
                     </tr>
 
                     <tbody id="user-comments-table">
@@ -66,7 +68,7 @@
                     <select id="product-drop-down-box">
 
                     </select>
-                    <input id="user-email"/>
+                <input id="user-email" readonly="readonly" />
                     <input id="comment-text" placeholder="enter your comment.."/>
                     <input id="created-date" placeholder="enter the date.."/>
                     <br />
@@ -122,7 +124,6 @@
                                    <td>${data[i].product_name}</td>
                                    <td>${data[i].product_price}$</td>
                                    <td>${data[i].product_description}</td>
-                                   <td class="td-button">${buttons}</td>
                                </tr>`
 
                     table.innerHTML += row
@@ -143,11 +144,13 @@
 
                     var row = `<tr>
                                    <td>${data[i].comment_id}</td>
+                                   <td>${data[i].email}</td>
+                                   <td>${data[i].product_name}</td>
                                    <td>${data[i].comment_text}</td>
-                                   <td>${data[i].fk_product_id}$</td>
-                                   <td>${data[i].fk_user_id}</td>
-                                   <td class="td-button">${buttons}</td>
+                                   <td>${data[i].created_date}</td>
                                </tr>`
+
+                               // Need to set the fk_product_id to product_name via drop-down box
 
                     table.innerHTML += row
                 }
