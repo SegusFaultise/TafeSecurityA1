@@ -1,4 +1,5 @@
-﻿namespace SQL_WEB_APPLICATION.Models
+﻿#region Product model
+namespace SQL_WEB_APPLICATION.Models
 {
     public class ProductModel
     {
@@ -9,3 +10,4 @@
         public string? updated_date { get; set; } = null!;
     }
 }
+#endregion

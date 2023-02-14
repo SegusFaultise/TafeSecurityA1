@@ -1,6 +1,9 @@
-﻿using SQL_WEB_APPLICATION.Models;
+﻿#region Imports
+using SQL_WEB_APPLICATION.Models;
 using SQL_WEB_APPLICATION.Models.Dto;
+#endregion
 
+#region Comment repository interface 
 namespace SQL_WEB_APPLICATION.Context
 {
     public interface ICommentRepository
@@ -9,3 +12,4 @@ namespace SQL_WEB_APPLICATION.Context
         public Task<IEnumerable<CommentModel>> GetComments();
     }
 }
+#endregion

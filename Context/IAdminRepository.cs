@@ -1,5 +1,8 @@
-﻿using SQL_WEB_APPLICATION.Models;
+﻿#region Imports
+using SQL_WEB_APPLICATION.Models;
+#endregion
 
+#region Admin repository interface
 namespace SQL_WEB_APPLICATION.Context
 {
     public interface IAdminRepository
@@ -9,3 +12,4 @@ namespace SQL_WEB_APPLICATION.Context
         public Task PostAdmin(AdminModel adminModel);
     }
 }
+#endregion

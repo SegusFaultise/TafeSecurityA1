@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿#region Imports
+using Microsoft.AspNetCore.Mvc;
+#endregion
 
+#region logedin admin controller
 namespace SQL_WEB_APPLICATION.Controllers
 {
     public class LogedinAdminController : Controller
@@ -25,3 +28,4 @@ namespace SQL_WEB_APPLICATION.Controllers
         }
     }
 }
+#endregion

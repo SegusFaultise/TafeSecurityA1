@@ -1,5 +1,8 @@
-﻿using SQL_WEB_APPLICATION.Models;
+﻿#region Imports
+using SQL_WEB_APPLICATION.Models;
+#endregion
 
+#region Product repository interface
 namespace SQL_WEB_APPLICATION.Context
 {
     public interface IProductRepository
@@ -8,3 +11,4 @@ namespace SQL_WEB_APPLICATION.Context
         public Task<IEnumerable<ProductModel>> GetProductName();
     }
 }
+#endregion

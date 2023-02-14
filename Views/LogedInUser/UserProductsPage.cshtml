@@ -75,6 +75,7 @@
             </div>
         </div>
     </section>
+
     <script>
 
             var userEmailBox = $("#user-email")
@@ -86,6 +87,7 @@
 
             var header = document.getElementById('user-heading')
             var heading = `<h2>${userEmailVal} Comments<h2/>`
+
             header.innerHTML = heading
 
             var productArray = []
@@ -102,6 +104,12 @@
                     console.log(productArray)
                 }
             })
+
+            /*
+                Builds a table that displays all products,
+                and if a new product is created the table
+                will generate a new row
+            */
 
             function buildProductTabel(data) {
                 var table = document.getElementById('product-table')
@@ -121,6 +129,12 @@
                 }
             }
 
+            /*
+                Builds a table that displays all comments,
+                and if a new product is created the table
+                will generate a new row
+            */
+
             function buildAllCommentsTabel(data) {
                 var table = document.getElementById('all-comments-table')
 
@@ -138,6 +152,12 @@
                     table.innerHTML += row
                 }
             }
+
+            /*
+                Builds a table that displays all comments,
+                and if a new product is created the table
+                will generate a new row
+            */
 
             function buildUserCommentsTabel(data) {
                 var table = document.getElementById('user-comments-table')
@@ -158,6 +178,11 @@
                 }
             }
 
+            /*
+                Gets all prodcuts via an ajax GET request
+                linked to the product controller
+            */
+
             $.ajax({
                 type: "GET",
                 url: "@Url.Action("GetProductName", "Product")",
@@ -168,6 +193,10 @@
                     console.log(productNameArray)
                 }
             })
+
+            /*
+                Creates a drop down box for the gpu field only 
+            */
 
             function buildUserCommentsDropDownBox(data) {
                 var table = document.getElementById('product-drop-down-box')
@@ -180,6 +209,11 @@
                 }
             }
 
+            /*
+                Gets all users via an ajax GET request
+                linked to the comment controller
+            */
+
             $.ajax({
                 type: "GET",
                 url: "@Url.Action("GetComments", "Comment")",
@@ -190,6 +224,11 @@
                     console.log(commentArray)
                 }
             })
+
+            /*
+                Gets all users via an ajax Post request
+                linked to the comment controller
+            */
 
             $("#add-comment").click(function (event) {
                     $.ajax({

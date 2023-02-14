@@ -1,4 +1,5 @@
-﻿namespace SQL_WEB_APPLICATION.Models
+﻿#region User model
+namespace SQL_WEB_APPLICATION.Models
 {
     public class UserModel
     {
@@ -7,3 +8,4 @@
         public string? password { get; set; } = null!;
     }
 }
+#endregion

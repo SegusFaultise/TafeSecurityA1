@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿#region Imports
+using Microsoft.AspNetCore.Mvc;
+#endregion
 
+#region Logedin user controller
 namespace SQL_WEB_APPLICATION.Controllers
 {
     public class LogedInUserController : Controller
@@ -30,3 +33,4 @@ namespace SQL_WEB_APPLICATION.Controllers
         }
     }
 }
+#endregion

@@ -1,4 +1,5 @@
-﻿namespace SQL_WEB_APPLICATION.Models
+﻿#region Comment model
+namespace SQL_WEB_APPLICATION.Models
 {
     public class CommentModel
     {
@@ -9,3 +10,4 @@
         public string created_date { get; set; } = null!;
     }
 }
+#endregion

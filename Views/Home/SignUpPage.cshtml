@@ -41,6 +41,12 @@
                 var loginValid = "LOGIN VALID";
                 var loginInvalid = "LOGIN INVALID";
 
+                /*
+                    when the login button is clicked an ajax GET request is activated
+                    that will authenticate the detials entered, if the details do not
+                    match a entry in the user table then a new user will be created.
+                */
+
                 $.ajax({
                     type: "GET",
                     url: "@Url.Action("CheckUser", "User")" + "?" + emailParam,

@@ -1,19 +1,25 @@
-﻿using Dapper;
+﻿#region Imports
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models.Dto;
 using SQL_WEB_APPLICATION.Models;
 using System.Data;
+#endregion
 
+#region Comment repository
 namespace SQL_WEB_APPLICATION.Models.Repository
 {
     public class CommentRepository : ICommentRepository
     {
+        #region Dapper instalized
         private readonly DapperContext _context;
 
         public CommentRepository(DapperContext context) =>
             _context = context;
+        #endregion
 
+        #region Creates a new user comment with a forigen key from the [Product] table
         public async Task PostUserComments(CommentModel commentModel)
         {
             ProductModel productModel = new ProductModel();
@@ -28,7 +34,9 @@ namespace SQL_WEB_APPLICATION.Models.Repository
                 await connection.ExecuteAsync(query, commentModel);
             }
         }
+        #endregion
 
+        #region Gets all of the comments and displays them in a view
         public async Task<IEnumerable<CommentModel>> GetComments()
         {
             string query = "SELECT Comments.comment_id, Comments.comment_text, Comments.created_date, " +
@@ -42,5 +50,7 @@ namespace SQL_WEB_APPLICATION.Models.Repository
                 return users.ToList();
             }
         }
+        #endregion
     }
 }
+#endregion

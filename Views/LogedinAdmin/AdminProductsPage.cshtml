@@ -72,6 +72,10 @@
         var userArray = []
         var commentArray = []
 
+        /*Builds a table that displays all products,
+        and if a new product is created the table
+        will generate a new row*/
+
         function buildProductTabel(data) {
             var table = document.getElementById('product-table')
 
@@ -90,6 +94,10 @@
             }
         }
 
+        /*Builds a table that displays all comments,
+        and if a new product is created the table
+        will generate a new row*/
+
         function buildAllCommentsTabel(data) {
             var table = document.getElementById('all-comments-table')
 
@@ -107,6 +115,10 @@
             }
         }
 
+        /*Builds a table that displays all users,
+        and if a new product is created the table
+        will generate a new row*/
+
         function buildUsersTabel(data) {
             var table = document.getElementById('users-table')
 
@@ -123,6 +135,9 @@
             }
         }
 
+        /*Gets all prodcuts via an ajax GET request 
+        linked to the product controller*/
+
         $.ajax({
             type: "GET",
             url: "@Url.Action("GetProducts", "Product")",
@@ -134,6 +149,8 @@
             }
         })
 
+        /*Gets all users via an ajax GET request
+        linked to the product controller*/
         $.ajax({
             type: "GET",
             url: "@Url.Action("GetAllUsers", "User")",
@@ -144,6 +161,9 @@
                 console.log(userArray)
             }
         })
+
+        /*Gets all comments via an ajax GET request 
+        linked to the product controller*/
 
         $.ajax({
             type: "GET",

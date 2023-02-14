@@ -51,6 +51,12 @@
                 var emailLoginInput = sessionStorage.getItem("emailBoxInput")
                 var updateButton = sessionStorage.getItem("updateButton")
 
+                /*
+                    when the login button is clicked an ajax GET request is activated
+                    that will authenticate the detials entered, if the details match then the user will be brought to the
+                    user account page.
+                */
+
                 $.ajax({
                     type: "GET",
                     url: "@Url.Action("AuthenticateLogin", "User")" + "?" + emailParam,

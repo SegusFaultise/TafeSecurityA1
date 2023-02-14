@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿#region Imports
+using Microsoft.AspNetCore.Mvc;
 using SQL_WEB_APPLICATION.Models;
 using System.Diagnostics;
+#endregion
 
+#region Home controller
 namespace SQL_WEB_APPLICATION.Controllers
 {
     public class HomeController : Controller
@@ -55,3 +58,4 @@ namespace SQL_WEB_APPLICATION.Controllers
         }
     }
 }
+#endregion

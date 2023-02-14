@@ -19,9 +19,12 @@
                 <input type="text" id="user-id-box" />
                 <br />
                 <br />
-                <input type="update-box" placeholder="update email.." id="email-input" />
+                <input type="email" placeholder="update email.." id="email-input" />
                 <br />
-                <button id="Update-button">Update</button>
+                <br />
+                <input type="password" placeholder="update password.." id="password-input" />
+                <br />
+                <button id="update-button">Update</button>
                 <br />
                 <button id="logout-button">Logout</button>
                 <br />
@@ -81,19 +84,23 @@
             */
 
             $("#update-button").click(function (event) {
-                var updateBoxInput = $("#update-box").val()
-                var emailParam = "&email=" + updateBoxInput
+                var emailInput = $("#email-input").val()
+                var passwordInput = $("#password-input").val()
+                var id = $('#user-id-box').val()
+                var emailParam = "user_id=" + id + "&email=" + emailInput + "&password=" + passwordInput
                 var updateError = $("#update-error")
                 var updateError2 = $("#update-error2")
                 var updateParam = passwordParam + emailParam
                 var updateMessageError = "UPDATE ERROR"
                 var updateMessageComplete = "UPDATE COMPLETE"
+                var openUrlLoginPage = "@Url.Action("LoginPage", "Home")"
+
                 if (updateBox.val() != "") {
                     updateError.hide()
 
                     $.ajax({
                         type: "PUT",
-                        url: "@Url.Action("UpdateAccount", "Account")" + "?" + updateParam,
+                        url: "@Url.Action("UpdateUser", "User")" + "?" + emailParam,
                         dataType: "JSON",
                         data: Request,
                         success: function (data) {
@@ -101,7 +108,8 @@
                             if (data == updateMessageComplete) {
                                 console.log(data)
                                 updateBox.val("")
-                                emailBox.val(updateBoxInput)
+                                emailBox.val(emailInput)
+                                passwordBox.val(passwordInput)
                                 window.location.href = openUrlLoginPage
                             }
                             if (data == updateMessageError) {
@@ -133,6 +141,11 @@
             var passwordParam = "&Password="
             var loginInvalid = "LOGIN INVALID";
             var emailParam = "Email=" + emailInput + passwordParam + passwordInput;
+
+            /*
+               When the login button is clicked the entered details will be authenticate
+               and if they match the user will be brought to the user account page.
+            */
 
             $.ajax({
                 type: "GET",

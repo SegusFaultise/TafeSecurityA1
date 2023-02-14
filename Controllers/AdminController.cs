@@ -1,20 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿#region Imports
+using Microsoft.AspNetCore.Mvc;
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models;
+#endregion
 
+#region Admin controller
 namespace SQL_WEB_APPLICATION.Controllers
 {
     [Controller]
     [Route("~/api/[controller]")]
     public class AdminController : Controller
     {
+        #region Dapper intialized
         private readonly IAdminRepository _adminResository;
 
         public AdminController(IAdminRepository adminRepository)
         {
              _adminResository = adminRepository;
         }
+        #endregion
 
+        #region Authenticates the admin login
         [HttpGet]
         [Route("AuthenticateLogin")]
         public async Task<IActionResult> AuthenticateLogin(AdminModel? adminModel)
@@ -32,7 +38,9 @@ namespace SQL_WEB_APPLICATION.Controllers
             }
             return Json(message);
         }
+        #endregion
 
+        #region Checks if the inputed details and if it matches an admin account will be created
         [HttpGet]
         [Route("CheckAdmin")]
         public async Task<IActionResult> CheckAdmin(AdminModel? adminModel)
@@ -50,5 +58,7 @@ namespace SQL_WEB_APPLICATION.Controllers
             }
             return Json(message);
         }
+        #endregion
     }
 }
+#endregion
