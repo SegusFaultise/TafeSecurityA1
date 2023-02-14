@@ -1,6 +1,7 @@
 #region Imports
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models.Repository;
+using System.Runtime;
 #endregion
 
 #region Instanciate {builder} Variable From WebApplication Class
@@ -19,6 +20,13 @@ builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(20);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+});
 #endregion
 
 #region Instanciate {app} Variable With Build() From {builder} variable
@@ -37,21 +45,13 @@ if (!app.Environment.IsDevelopment())
 
 builder.Services.AddDistributedMemoryCache();
 
-//builder.Services.AddSession(options =>
-//{
-//    options.IdleTimeout = TimeSpan.FromMinutes(20);
-//    options.Cookie.HttpOnly = true;
-//    options.Cookie.IsEssential = true;
-//});
-
 app.UseSwagger();
 app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
-//app.UseSession();
+app.UseSession();
 app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",

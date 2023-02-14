@@ -44,6 +44,7 @@ namespace SQL_WEB_APPLICATION.Controllers
 
             if (loginStatus != null & email_valadtion == true)
             {
+                HttpContext.Session.SetString("Auth", "True");
                 message = "LOGIN VALID";
             }
             else
