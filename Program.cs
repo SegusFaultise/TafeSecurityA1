@@ -23,6 +23,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromSeconds(20);
+    options.Cookie.Name = "SessionId";
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
     options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;

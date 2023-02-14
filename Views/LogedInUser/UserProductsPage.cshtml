@@ -1,6 +1,15 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+
+
+@{
     ViewData["Title"] = "UserProductPage";
     Layout = "~/Views/Shared/_LogedInUser.cshtml";
+
+    //int get_session_id = (int)Context.Session.GetInt32("SessionId");
+    string get_session_id = Context.Session.Id;
+
+    // use a flag to indicate whether or not the user is logged in
+    bool same_session = get_session_id.Equals(6);
 }
 
 <head>
@@ -103,6 +112,15 @@
                 success: function (response) {
                     productArray = response
                     buildProductTabel(productArray)
+                    console.log(productArray)
+                }
+            })
+
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetSessionId", "LogedInUser")",
+                dataType: "JSON",
+                success: function (response) {
                     console.log(productArray)
                 }
             })

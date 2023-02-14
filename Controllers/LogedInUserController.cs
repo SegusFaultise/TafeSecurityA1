@@ -1,5 +1,6 @@
 ﻿#region Imports
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 #endregion
 
 #region Logedin user controller
@@ -30,6 +31,12 @@ namespace SQL_WEB_APPLICATION.Controllers
         public IActionResult UserProductsPage()
         {
             return View();
+        }
+
+        public IActionResult GetSessionId()
+        {
+            string id = HttpContext.Session.Id;
+            return Ok(id);
         }
     }
 }
