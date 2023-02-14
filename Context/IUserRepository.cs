@@ -14,6 +14,7 @@ namespace SQL_WEB_APPLICATION.Context
         public Task<IEnumerable<UserModel>> CheckUsersId();
         public Task PostUser(UserModel userModel);
         public Task UpdateUser(UserModel userModel);
+        public Task DeleteUser(UserModel id);
     }
 }
 #endregion

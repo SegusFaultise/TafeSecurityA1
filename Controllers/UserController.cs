@@ -126,6 +126,16 @@ namespace SQL_WEB_APPLICATION.Controllers
             return Json(message);
         }
         #endregion
+
+        #region Checks if the inputed detials match an entry in the [User] table if so the creates a new user
+        [HttpDelete]
+        [Route("DeleteUser")]
+        public async Task<IActionResult> DeleteUser(UserModel id)
+        {
+            await _userRepository.DeleteUser(id);
+            return Json("ACCOUNT DELETED");
+        }
+        #endregion
     }
 }
 #endregion

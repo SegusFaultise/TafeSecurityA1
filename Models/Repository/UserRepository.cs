@@ -96,6 +96,19 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             }
         }
         #endregion
+
+        #region Delete user account
+        public async Task DeleteUser(UserModel id)
+        {
+            var query = "DELETE [User] " +
+                        "WHERE user_id = @user_id ";
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, id);
+            }
+        }
+        #endregion`
     }
 }
 #endregion

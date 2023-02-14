@@ -157,6 +157,34 @@
                         $("#user-id-box").val(data)
                 }
             })
+
+            $("#delete-button").click(function (event) {
+
+                var id = $('#user-id-box').val()
+                var idParam = "user_id=" + id
+                var updateError = $("#update-error")
+                var updateError2 = $("#update-error2")
+                var openUrlLoginPage = "@Url.Action("LoginPage", "Home")"
+
+                    $.ajax({
+                        type: "DELETE",
+                        url: "@Url.Action("DeleteUser", "User")" + "?" + idParam,
+                        dataType: "JSON",
+                        data: Request,
+                        success: function (data) {
+
+                            console.log(data)
+
+                            if (data == "ACCOUNT DELETED") {
+                                console.log(data)
+                                updateBox.val("")
+                                emailBox.val(emailInput)
+                                passwordBox.val(passwordInput)
+                                window.location.href = openUrlLoginPage
+                            }
+                        }
+                    })
+            })
         })
     </script>
 </body>
