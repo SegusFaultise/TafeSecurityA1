@@ -32,12 +32,6 @@ namespace SQL_WEB_APPLICATION.Controllers
         {
             return View();
         }
-
-        public IActionResult GetSessionId()
-        {
-            string id = HttpContext.Session.Id;
-            return Ok(id);
-        }
     }
 }
 #endregion

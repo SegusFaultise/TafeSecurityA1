@@ -8,6 +8,7 @@ namespace SQL_WEB_APPLICATION.Models
         public string email { get; set; } = null!;
         public string comment_text { get; set; } = null!;
         public string created_date { get; set; } = null!;
+        public string session_id { get; set; } = null!;
     }
 }
 #endregion

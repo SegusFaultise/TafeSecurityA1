@@ -32,6 +32,14 @@ namespace SQL_WEB_APPLICATION.Controllers
         }
         #endregion
 
+        [HttpGet]
+        [Route("GetSessionId")]
+        public async Task<IActionResult> GetSessionId()
+        {
+            string id = HttpContext.Session.Id;
+            return Ok(id);
+        }
+
         #region Authenticates user login
         [HttpGet]
         [Route("AuthenticateLogin")]
