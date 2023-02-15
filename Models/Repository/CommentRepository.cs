@@ -36,7 +36,7 @@ namespace SQL_WEB_APPLICATION.Models.Repository
         }
         #endregion
 
-        #region Gets all of the comments and displays them in a view
+        #region Gets all of the comments and displays them in a view 
         public async Task<IEnumerable<CommentModel>> GetComments()
         {
             string query = "SELECT Comments.comment_id, Comments.comment_text, Comments.created_date, Comments.email, Comments.session_id, " +
@@ -47,6 +47,20 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             using (var connection = _context.CreateConnection())
             {
                 var users = await connection.QueryAsync<CommentModel>(query);
+                return users.ToList();
+            }
+        }
+        #endregion
+
+        #region Gets comments based on logedin user 
+        public async Task<IEnumerable<CommentModel>> GetUserComments(CommentModel commentModel)
+        {
+            var query = "SELECT * FROM Comments " +
+                        "WHERE email = @email ";
+
+            using (var connection = _context.CreateConnection())
+            {
+                var users = await connection.QueryAsync<CommentModel>(query, commentModel);
                 return users.ToList();
             }
         }

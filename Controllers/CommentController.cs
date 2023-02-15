@@ -43,6 +43,16 @@ namespace SQL_WEB_APPLICATION.Controllers
             return Results.Ok();
         }
         #endregion
+
+        #region Gets users comments 
+        [HttpGet]
+        [Route("GetUserComments")]
+        public async Task<IActionResult> GetUserComments(CommentModel commentModel)
+        {
+            var user_comments = await _commentRepository.GetUserComments(commentModel);
+            return Ok(user_comments);
+        }
+        #endregion
     }
 }
 #endregion

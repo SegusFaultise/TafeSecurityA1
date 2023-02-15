@@ -63,6 +63,7 @@
                 <table>
                     <tr id="table-info">
                         <th>Id</th>
+                        <th>User</th>
                         <th>Product</th>
                         <th>Commnet</th>
                         <th>Date</th>
@@ -82,7 +83,7 @@
                     <input id="user-email" readonly="readonly" />
                     <input id="comment-text" placeholder="enter your comment.."/>
                     <input id="created-date" placeholder="enter the date.."/>
-                    <input id="session-id"/>
+                    <input id="session-id" readonly="readonly"/>
                     <br />
                     <button id="add-comment">Add</button>
                     <button id="update-comment">Update</button>
@@ -250,6 +251,17 @@
                 success: function (response) {
                     commentArray = response
                     buildAllCommentsTabel(commentArray)
+                    console.log(commentArray)
+                }
+            })
+
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetUserComments", "Comment")" + "?" + "email=" + userEmailVal,
+                dataType: "JSON",
+                success: function (response) {
+                    commentArray = response
+                    buildUserCommentsTabel(commentArray)
                     console.log(commentArray)
                 }
             })

@@ -10,6 +10,7 @@ namespace SQL_WEB_APPLICATION.Context
     {
         public Task PostUserComments(CommentModel commentModel);
         public Task<IEnumerable<CommentModel>> GetComments();
+        public Task<IEnumerable<CommentModel>> GetUserComments(CommentModel commentModel);
     }
 }
 #endregion

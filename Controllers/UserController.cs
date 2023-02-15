@@ -114,7 +114,7 @@ namespace SQL_WEB_APPLICATION.Controllers
         }
         #endregion
 
-        #region Checks if the inputed detials match an entry in the [User] table if so the creates a new user
+        #region Checks if the inputed detials match an entry in the [User] table if so the updates a users details
         [HttpPut]
         [Route("UpdateUser")]
         public async Task<IActionResult> UpdateUser(UserModel userModel)
@@ -136,7 +136,7 @@ namespace SQL_WEB_APPLICATION.Controllers
         }
         #endregion
 
-        #region Checks if the inputed detials match an entry in the [User] table if so the creates a new user
+        #region Checks if the inputed detials match an entry in the [User] table if so the deletes user
         [HttpDelete]
         [Route("DeleteUser")]
         public async Task<IActionResult> DeleteUser(UserModel id)
