@@ -36,11 +36,11 @@ namespace SQL_WEB_APPLICATION.Controllers
         #region Creates new user comment 
         [HttpPost]
         [Route("PostComments")]
-        public async Task<IResult> PostComments([FromBody] CommentModel commentModel)
+        public async Task<IActionResult> PostComments(CommentModel commentModel)
         {
 
             await _commentRepository.PostUserComments(commentModel);
-            return Results.Ok();
+            return Ok();
         }
         #endregion
 

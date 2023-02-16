@@ -4,12 +4,6 @@
 @{
     ViewData["Title"] = "UserProductPage";
     Layout = "~/Views/Shared/_LogedInUser.cshtml";
-
-    ////int get_session_id = (int)Context.Session.GetInt32("SessionId");
-    //string get_session_id = Context.Session.Id;
-
-    //// use a flag to indicate whether or not the user is logged in
-    //bool same_session = get_session_id.Equals(6);
 }
 
 <head>
@@ -92,7 +86,6 @@
     </section>
 
     <script>
-
             var userEmailBox = $("#user-email")
             var emailBox = sessionStorage.getItem("emailBox")
             var sessionIdBox = $("#session-id")
@@ -109,7 +102,58 @@
             var productArray = []
             var productNameArray = []
             var commentArray = []
+            var emailParam = "email="
+            var commentParam = "&comment_text="
+            var createdDate = "&created_date="
+            var sessionIdParam = "&session_id="
+            var commentTextBox = $("#comment-text")
+            var createdDateBox = $("#created-date")
 
+            ////////////////////////// Start of AJAX request ////////////////////////////
+            /*
+                Post comment via an ajax GET request
+                linked to the comment controller ->
+            */
+            $("#add-comment").click(function (event) {
+                    $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("PostComments", "Comment")" + "?" + emailParam + 
+                                                                          userEmailVal + 
+                                                                          commentParam + 
+                                                                          commentTextBox.val() +
+                                                                          createdDate +
+                                                                          createdDateBox.val() +
+                                                                          sessionIdParam + 
+                                                                          sessionIdBox.val(),
+                    dataType: "JSON",
+                    success: function (response) {
+
+                        commentArray = response
+                        buildUserCommentsTabel(commentArray)
+                        console.log(commentArray)
+                    }
+                })
+            })
+
+            /*
+                Gets all prodcut name via an ajax GET request
+                linked to the product controller ->
+            */
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetProductName", "Product")",
+                dataType: "JSON",
+                success: function (response) {
+                    productNameArray = response
+                    buildUserCommentsDropDownBox(productNameArray)
+                    console.log(productNameArray)
+                }
+            })
+
+            /*
+                Gets all prodcuts via an ajax GET request
+                linked to the product controller ->
+            */
             $.ajax({
                 type: "GET",
                 url: "@Url.Action("GetProducts", "Product")",
@@ -121,6 +165,10 @@
                 }
             })
 
+            /*
+                Gets the session id via an ajax GET request
+                linked to the user controller ->
+            */
             $.ajax({
                 type: "GET",
                 url: "@Url.Action("GetSessionId", "User")",
@@ -132,11 +180,43 @@
             })
 
             /*
+                Gets current users via an ajax GET request
+                linked to the comment controller ->
+            */
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetUserComments", "Comment")" + "?" + "email=" + userEmailVal,
+                dataType: "JSON",
+                success: function (response) {
+                    commentArray = response
+                    buildUserCommentsTabel(commentArray)
+                    console.log(commentArray)
+                }
+            })
+
+            /*
+                Gets all users via an ajax GET request
+                linked to the comment controller ->
+            */
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetComments", "Comment")",
+                dataType: "JSON",
+                success: function (response) {
+                    commentArray = response
+                    buildAllCommentsTabel(commentArray)
+                    console.log(commentArray)
+                }
+            })
+            ////////////////////////// End of AJAX request ////////////////////////////
+
+
+            ////////////////////////// Start of Table builder methods ////////////////////////////
+            /*
                 Builds a table that displays all products,
                 and if a new product is created the table
-                will generate a new row
+                will generate a new row ->
             */
-
             function buildProductTabel(data) {
                 var table = document.getElementById('product-table')
 
@@ -157,17 +237,14 @@
             /*
                 Builds a table that displays all comments,
                 and if a new product is created the table
-                will generate a new row
+                will generate a new row ->
             */
-
             function buildAllCommentsTabel(data) {
                 var table = document.getElementById('all-comments-table')
 
                 for (var i = 0; i < data.length; i++) {
                     
                     var buttons = `<button>delete</button>`
-
-                    //data[i].fk_product_id == product_name
                     
                     var row = `<tr>
                                    <td>${data[i].comment_id}</td>
@@ -176,18 +253,15 @@
                                    <td>${data[i].comment_text}</td>
                                    <td>${data[i].created_date}</td>
                                </tr>`
-
-                               // Need to set the fk_product_id to product_name via drop-down box
-                    table.innerHTML += row
+                    table.innerHTML += row // Need to set the fk_product_id to product_name via drop-down box
                 }
             }
 
             /*
                 Builds a table that displays all comments,
                 and if a new product is created the table
-                will generate a new row
+                will generate a new row ->
             */
-
             function buildUserCommentsTabel(data) {
                 var table = document.getElementById('user-comments-table')
 
@@ -196,10 +270,10 @@
 
                     var row = `<tr>
                                    <td>${data[i].comment_id}</td>
+                                   <td>${data[i].email}</td>
+                                   <td>${data[i].product}</td>
                                    <td>${data[i].comment_text}</td>
                                    <td>${data[i].created_date}</td>
-                                   <td>${data[i].email}</td>
-                                   <td>${data[i].product_name}</td>
                                    <td>${data[i].session_id}</td>
                                    <td class="td-button">${buttons}</td>
                                </tr>`
@@ -209,25 +283,8 @@
             }
 
             /*
-                Gets all prodcuts via an ajax GET request
-                linked to the product controller
+                Creates a drop down box for the gpu field only ->
             */
-
-            $.ajax({
-                type: "GET",
-                url: "@Url.Action("GetProductName", "Product")",
-                dataType: "JSON",
-                success: function (response) {
-                    productNameArray = response
-                    buildUserCommentsDropDownBox(productNameArray)
-                    console.log(productNameArray)
-                }
-            })
-
-            /*
-                Creates a drop down box for the gpu field only 
-            */
-
             function buildUserCommentsDropDownBox(data) {
                 var table = document.getElementById('product-drop-down-box')
 
@@ -238,50 +295,6 @@
                     table.innerHTML += row
                 }
             }
-
-            /*
-                Gets all users via an ajax GET request
-                linked to the comment controller
-            */
-
-            $.ajax({
-                type: "GET",
-                url: "@Url.Action("GetComments", "Comment")",
-                dataType: "JSON",
-                success: function (response) {
-                    commentArray = response
-                    buildAllCommentsTabel(commentArray)
-                    console.log(commentArray)
-                }
-            })
-
-            $.ajax({
-                type: "GET",
-                url: "@Url.Action("GetUserComments", "Comment")" + "?" + "email=" + userEmailVal,
-                dataType: "JSON",
-                success: function (response) {
-                    commentArray = response
-                    buildUserCommentsTabel(commentArray)
-                    console.log(commentArray)
-                }
-            })
-
-            /*
-                Gets all users via an ajax Post request
-                linked to the comment controller
-            */
-
-            $("#add-comment").click(function (event) {
-                    $.ajax({
-                    type: "POST",
-                    url: "@Url.Action("PostComments", "Comment")",
-                    dataType: "JSON",
-                    success: function (response) {
-                        commentArray = response
-                        buildUserCommentsTabel(commentArray)
-                        console.log(commentArray)
-                    }
-                })
-            })
+            ////////////////////////// End of table builder methods ////////////////////////////
     </script>
 </body>
