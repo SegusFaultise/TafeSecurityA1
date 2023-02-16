@@ -54,7 +54,7 @@
         <div class="first-div">
             <div class="get-div">
                 <h2 id="user-heading">user Comments</h2>
-                <table>
+                <table id="refresh">
                     <tr id="table-info">
                         <th>Id</th>
                         <th>User</th>
@@ -77,7 +77,7 @@
                     <input id="user-email" readonly="readonly" />
                     <input id="comment-text" placeholder="enter your comment.."/>
                     <input id="created-date" placeholder="enter the date.."/>
-                    <input id="session-id" readonly="readonly"/>
+                    <input id="session-id"/>
                     <br />
                     <button id="add-comment">Add</button>
                     <button id="update-comment">Update</button>
@@ -110,31 +110,6 @@
             var createdDateBox = $("#created-date")
 
             ////////////////////////// Start of AJAX request ////////////////////////////
-            /*
-                Post comment via an ajax GET request
-                linked to the comment controller ->
-            */
-            $("#add-comment").click(function (event) {
-                    $.ajax({
-                    type: "POST",
-                    url: "@Url.Action("PostComments", "Comment")" + "?" + emailParam + 
-                                                                          userEmailVal + 
-                                                                          commentParam + 
-                                                                          commentTextBox.val() +
-                                                                          createdDate +
-                                                                          createdDateBox.val() +
-                                                                          sessionIdParam + 
-                                                                          sessionIdBox.val(),
-                    dataType: "JSON",
-                    success: function (response) {
-
-                        commentArray = response
-                        buildUserCommentsTabel(commentArray)
-                        console.log(commentArray)
-                    }
-                })
-            })
-
             /*
                 Gets all prodcut name via an ajax GET request
                 linked to the product controller ->
@@ -208,6 +183,31 @@
                     console.log(commentArray)
                 }
             })
+
+            /*
+                Post comment via an ajax GET request
+                linked to the comment controller ->
+            */
+            $("#add-comment").click(function (event) {
+                    $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("PostComments", "Comment")" + "?" + emailParam + 
+                                                                          userEmailVal + 
+                                                                          commentParam + 
+                                                                          commentTextBox.val() +
+                                                                          createdDate +
+                                                                          createdDateBox.val() +
+                                                                          sessionIdParam + 
+                                                                          sessionIdBox.val(),
+                    dataType: "JSON",
+                    success: function (response) {
+
+                        commentArray = response
+                        buildUserCommentsTabel(commentArray)
+                        console.log(commentArray)
+                    }
+                })
+            })
             ////////////////////////// End of AJAX request ////////////////////////////
 
 
@@ -221,7 +221,6 @@
                 var table = document.getElementById('product-table')
 
                 for (var i = 0; i < data.length; i++) {
-                var buttons = `<button>delete</button>`
 
                     var row = `<tr>
                                    <td>${data[i].product_id}</td>
@@ -229,7 +228,6 @@
                                    <td>${data[i].product_price}$</td>
                                    <td>${data[i].product_description}</td>
                                </tr>`
-
                     table.innerHTML += row
                 }
             }
@@ -243,8 +241,6 @@
                 var table = document.getElementById('all-comments-table')
 
                 for (var i = 0; i < data.length; i++) {
-                    
-                    var buttons = `<button>delete</button>`
                     
                     var row = `<tr>
                                    <td>${data[i].comment_id}</td>
@@ -266,7 +262,11 @@
                 var table = document.getElementById('user-comments-table')
 
                 for (var i = 0; i < data.length; i++) {
-                var buttons = `<button>delete</button>`
+
+                    if (sessionIdBox.val() === data[i].session_id){
+
+                        var buttons = `<button>delete</button>`
+                    }
 
                     var row = `<tr>
                                    <td>${data[i].comment_id}</td>
