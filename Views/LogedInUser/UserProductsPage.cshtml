@@ -90,12 +90,14 @@
             var userEmailBox = $("#user-email")
             var emailBox = sessionStorage.getItem("emailBox")
             var sessionIdBox = $("#session-id")
-            var seshId = sessionStorage.getItem("session_id")
-            sessionStorage.setItem("sessionIdBox", sessionIdBox)
-            userEmailBox.val(emailBox)
+            var sessionIdBoxVal = $("#session-id").val()
+            var seshId = sessionStorage.getItem("data")
+
             sessionIdBox.val(seshId)
+            userEmailBox.val(emailBox)
 
             var userEmailVal = $("#user-email").val()
+            var seshId = sessionStorage.setItem("sessionIdBoxVal", sessionIdBoxVal)
             var header = document.getElementById('user-heading')
             var input = document.getElementById('session-id')
             var commentId = $("#comment-id")
@@ -143,19 +145,6 @@
                     console.log(productArray)
                 }
             })
-
-            /*
-                Gets the session id via an ajax GET request
-                linked to the user controller ->
-            */
-            //$.ajax({
-            //    type: "GET",
-            //    url: "@Url .Action("GetSessionId", "User")",
-            //    success: function (data) {
-            //        console.log(data)
-            //        $("#session-id").val(data)   
-            //    }
-            //})
 
             /*
                 Gets current users via an ajax GET request
@@ -209,6 +198,8 @@
                         console.log(commentArray)
                     }
                 })
+
+                location.reload()
             })
 
             ////////////////////////// End of AJAX request ////////////////////////////

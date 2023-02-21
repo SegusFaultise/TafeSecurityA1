@@ -37,6 +37,7 @@ namespace SQL_WEB_APPLICATION.Controllers
         public async Task<IActionResult> GetSessionId()
         {
             string id = HttpContext.Session.Id;
+            
             return Ok(id);
         }
 
@@ -53,7 +54,8 @@ namespace SQL_WEB_APPLICATION.Controllers
 
             if (loginStatus != null & email_valadtion == true)
             {
-                HttpContext.Session.SetInt32("SessionId", 1);
+                string id = HttpContext.Session.Id;
+                HttpContext.Session.GetString(id);
                 message = "LOGIN VALID";
             }
             else

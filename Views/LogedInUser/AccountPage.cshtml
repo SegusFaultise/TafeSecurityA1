@@ -42,6 +42,7 @@
             var updateBox = $("#update-box")
             var emailLoginInput = sessionStorage.getItem("emailInput")
             var passwordLoginInput = sessionStorage.getItem("passwordInput")
+            var sessionIdBoxVal = sessionStorage.getItem("sessionIdBoxVal")
 
             passwordBox.val(passwordLoginInput)
             emailBox.val(emailLoginInput)
@@ -106,7 +107,6 @@
                when the logout button is clicked the user will be brought back to the
                login page.
             */
-
             $("#logout-button").click(function (event) {
                 if (window.confirm("Are you sure you want to log out?")) {
 

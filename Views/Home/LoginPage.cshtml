@@ -52,11 +52,23 @@
                 var updateButton = sessionStorage.getItem("updateButton")
 
                 /*
+                  Gets the session id via an ajax GET request
+                  linked to the user controller ->
+                */
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Action("GetSessionId", "User")",
+                    success: function (data) {
+                        sessionStorage.setItem("data", data)
+                        console.log(data)
+                    }
+                })
+
+                /*
                     when the login button is clicked an ajax GET request is activated
                     that will authenticate the detials entered, if the details match then the user will be brought to the
                     user account page.
                 */
-
                 $.ajax({
                     type: "GET",
                     url: "@Url.Action("AuthenticateLogin", "User")" + "?" + emailParam,
@@ -73,18 +85,7 @@
                             sessionStorage.setItem("emailInput", emailInput)
                             sessionStorage.setItem("passwordInput", passwordInput)
                             email.val()
-                            /*
-                            Gets the session id via an ajax GET request
-                            linked to the user controller ->
-                            */
-                            $.ajax({
-                                type: "GET",
-                                url: "@Url.Action("GetSessionId", "User")",
-                                success: function (data) {
-                                    sessionStorage.setItem("session_id", data)
-                                    console.log(data)
-                                }
-                            })
+
                             window.location.href = goToUrl
                         }
                         if (passwordInput | emailInput == "") {
