@@ -87,6 +87,7 @@
             var userEmailBox = $("#user-email")
             var emailBox = sessionStorage.getItem("emailBox")
             var seshId = sessionStorage.getItem("data")
+            var productSelect = document.getElementById("product-drop-down-box")
 
             userEmailBox.val(emailBox)
 
@@ -101,7 +102,8 @@
             var productArray = []
             var productNameArray = []
             var commentArray = []
-            var emailParam = "email="
+            var emailParam = "&email="
+            var fkProductId = "product="
             var commentParam = "&comment_text="
             var createdDate = "&created_date="
             var sessionIdParam = "&session_id="
@@ -177,12 +179,12 @@
 
                 $.ajax({
                 type: "POST",
-                url: "@Url.Action("PostComments", "Comment")" + "?" + emailParam + 
+                url: "@Url.Action("PostComments", "Comment")" + "?" + fkProductId +
+                                                                          productSelect.options[productSelect.selectedIndex].text +
+                                                                          emailParam + 
                                                                           emailBox + 
                                                                           commentParam + 
                                                                           commentTextBox.val() +
-                                                                          createdDate +
-                                                                          createdDateBox.val() +
                                                                           sessionIdParam + 
                                                                           seshId,
                     dataType: "JSON",
@@ -232,7 +234,7 @@
                     var row = `<tr>
                                    <td>${data[i].comment_id}</td>
                                    <td>${data[i].email}</td>
-                                   <td>${data[i].fk_product_id}</td>
+                                   <td>${data[i].product}</td>
                                    <td>${data[i].comment_text}</td>
                                    <td>${data[i].created_date}</td>
                                </tr>`
@@ -252,10 +254,12 @@
 
                     if (seshId === data[i].session_id){
 
-                        var buttons = `<button>delete</button>`
+                        var deleteButton = `<button>delete</button>`
+                        var editButton = `<button>edit</button>`
                     }
                     else {
-                        var buttons = ``
+                        var deleteButton = ``
+                        var editButton = ``
                     }
 
                     var row = `<tr>
@@ -265,7 +269,8 @@
                                    <td>${data[i].comment_text}</td>
                                    <td>${data[i].created_date}</td>
                                    <td>${data[i].session_id}</td>
-                                   <td class="td-button" id="delete-button">${buttons}</td>
+                                   <td class="td-button" id="edit-button">${editButton}</td>
+                                   <td class="td-button" id="delete-button">${deleteButton}</td>
                                </tr>`
 
                     table.innerHTML += row
