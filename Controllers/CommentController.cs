@@ -39,6 +39,7 @@ namespace SQL_WEB_APPLICATION.Controllers
         public async Task<IActionResult> PostComments(CommentModel commentModel)
         {
 
+            commentModel.created_date = DateTime.Now;
             await _commentRepository.PostUserComments(commentModel);
             return Ok();
         }

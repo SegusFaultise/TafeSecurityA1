@@ -7,7 +7,7 @@ namespace SQL_WEB_APPLICATION.Models
         public int fk_product_id { get; set; }
         public string email { get; set; } = null!;
         public string comment_text { get; set; } = null!;
-        public string created_date { get; set; } = null!;
+        public DateTime created_date { get; set; }
         public string session_id { get; set; } = null!;
     }
 }

@@ -110,14 +110,7 @@
             $("#logout-button").click(function (event) {
                 if (window.confirm("Are you sure you want to log out?")) {
 
-                    $.ajax({
-                        type: "GET",
-                        url: "@Url.Action("GetSessionIdLogout", "User")",
-                        success: function (data) {
-                            window.location.href = openUrlHomePage
-                            console.log(data)
-                        }
-                    })
+                    window.location.href = openUrlHomePage
                 }
             })
 

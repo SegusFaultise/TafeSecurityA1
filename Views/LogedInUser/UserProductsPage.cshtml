@@ -76,8 +76,9 @@
 
                     <input id="user-email" readonly="readonly" />
                     <input id="comment-text" placeholder="enter your comment.."/>
-                    <input id="created-date" placeholder="enter the date.."/>
+                    
                     <input id="session-id"/>
+                    <input id="comment-id" />
                     <br />
                     <button id="add-comment">Add</button>
                     <button id="update-comment">Update</button>
@@ -264,6 +265,9 @@
                     if (sessionIdBox.val() === data[i].session_id){
 
                         var buttons = `<button>delete</button>`
+                    }
+                    else {
+                        var buttons = ``
                     }
 
                     var row = `<tr>

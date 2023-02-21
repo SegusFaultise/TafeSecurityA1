@@ -52,6 +52,7 @@ namespace SQL_WEB_APPLICATION.Controllers
         #region Authenticates user login
         [HttpGet]
         [Route("AuthenticateLogin")]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> AuthenticateLogin(UserModel? userModel)
         {
             string message;
