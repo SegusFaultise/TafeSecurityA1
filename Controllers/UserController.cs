@@ -40,6 +40,15 @@ namespace SQL_WEB_APPLICATION.Controllers
             return Ok(id);
         }
 
+        [HttpGet]
+        [Route("GetSessionIdLogout")]
+        public async Task<IActionResult> ResetSessionId()
+        {
+            string id = HttpContext.Session.Id;
+            id.ReplaceLineEndings();
+            return Ok(id);
+        }
+
         #region Authenticates user login
         [HttpGet]
         [Route("AuthenticateLogin")]

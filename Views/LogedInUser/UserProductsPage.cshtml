@@ -148,7 +148,6 @@
                 type: "GET",
                 url: "@Url.Action("GetSessionId", "User")",
                 success: function (data) {
-
                     console.log(data)
                     $("#session-id").val(data)   
                 }
@@ -189,9 +188,10 @@
                 linked to the comment controller ->
             */
             $("#add-comment").click(function (event) {
-                    $.ajax({
-                    type: "POST",
-                    url: "@Url.Action("PostComments", "Comment")" + "?" + emailParam + 
+
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("PostComments", "Comment")" + "?" + emailParam + 
                                                                           userEmailVal + 
                                                                           commentParam + 
                                                                           commentTextBox.val() +
@@ -201,8 +201,6 @@
                                                                           sessionIdBox.val(),
                     dataType: "JSON",
                     success: function (response) {
-
-                        commentArray = response
                         buildUserCommentsTabel(commentArray)
                         console.log(commentArray)
                     }

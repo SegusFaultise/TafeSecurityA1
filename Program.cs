@@ -22,7 +22,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromSeconds(20);
+    options.IdleTimeout = TimeSpan.FromSeconds(500);
     options.Cookie.Name = "SessionId";
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
