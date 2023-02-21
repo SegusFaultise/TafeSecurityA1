@@ -96,6 +96,7 @@
             var userEmailVal = $("#user-email").val()
             var header = document.getElementById('user-heading')
             var input = document.getElementById('session-id')
+            var commentId = $("#comment-id")
             var heading = `<h2>${userEmailVal} Comments<h2/>`
 
             header.innerHTML = heading
@@ -207,6 +208,7 @@
                     }
                 })
             })
+
             ////////////////////////// End of AJAX request ////////////////////////////
 
 
@@ -271,16 +273,18 @@
                     }
 
                     var row = `<tr>
-                                   <td>${data[i].comment_id}</td>
+                                   <td id="data-id">${data[i].comment_id}</td>
                                    <td>${data[i].email}</td>
                                    <td>${data[i].product}</td>
                                    <td>${data[i].comment_text}</td>
                                    <td>${data[i].created_date}</td>
                                    <td>${data[i].session_id}</td>
-                                   <td class="td-button">${buttons}</td>
+                                   <td class="td-button" id="delete-button">${buttons}</td>
                                </tr>`
 
                     table.innerHTML += row
+
+                    $("#comment-id").val(data[i].comment_id)
                 }
             }
 
