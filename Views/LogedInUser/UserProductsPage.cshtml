@@ -89,9 +89,9 @@
     <script>
             var userEmailBox = $("#user-email")
             var emailBox = sessionStorage.getItem("emailBox")
-            sessionStorage.setItem("emailInput", emailInput)
             var sessionIdBox = $("#session-id")
             var seshId = sessionStorage.getItem("session_id")
+            sessionStorage.setItem("sessionIdBox", sessionIdBox)
             userEmailBox.val(emailBox)
             sessionIdBox.val(seshId)
 
