@@ -73,6 +73,18 @@
                             sessionStorage.setItem("emailInput", emailInput)
                             sessionStorage.setItem("passwordInput", passwordInput)
                             email.val()
+                            /*
+                            Gets the session id via an ajax GET request
+                            linked to the user controller ->
+                            */
+                            $.ajax({
+                                type: "GET",
+                                url: "@Url.Action("GetSessionId", "User")",
+                                success: function (data) {
+                                    sessionStorage.setItem("session_id", data)
+                                    console.log(data)
+                                }
+                            })
                             window.location.href = goToUrl
                         }
                         if (passwordInput | emailInput == "") {

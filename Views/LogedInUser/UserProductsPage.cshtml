@@ -89,9 +89,11 @@
     <script>
             var userEmailBox = $("#user-email")
             var emailBox = sessionStorage.getItem("emailBox")
+            sessionStorage.setItem("emailInput", emailInput)
             var sessionIdBox = $("#session-id")
-
+            var seshId = sessionStorage.getItem("session_id")
             userEmailBox.val(emailBox)
+            sessionIdBox.val(seshId)
 
             var userEmailVal = $("#user-email").val()
             var header = document.getElementById('user-heading')
@@ -146,14 +148,14 @@
                 Gets the session id via an ajax GET request
                 linked to the user controller ->
             */
-            $.ajax({
-                type: "GET",
-                url: "@Url.Action("GetSessionId", "User")",
-                success: function (data) {
-                    console.log(data)
-                    $("#session-id").val(data)   
-                }
-            })
+            //$.ajax({
+            //    type: "GET",
+            //    url: "@Url .Action("GetSessionId", "User")",
+            //    success: function (data) {
+            //        console.log(data)
+            //        $("#session-id").val(data)   
+            //    }
+            //})
 
             /*
                 Gets current users via an ajax GET request
