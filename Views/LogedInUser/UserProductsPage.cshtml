@@ -74,10 +74,7 @@
 
                     </select>
 
-                    <input id="user-email" readonly="readonly" />
                     <input id="comment-text" placeholder="enter your comment.."/>
-                    
-                    <input id="session-id"/>
                     <input id="comment-id" />
                     <br />
                     <button id="add-comment">Add</button>
@@ -89,19 +86,15 @@
     <script>
             var userEmailBox = $("#user-email")
             var emailBox = sessionStorage.getItem("emailBox")
-            var sessionIdBox = $("#session-id")
-            var sessionIdBoxVal = $("#session-id").val()
             var seshId = sessionStorage.getItem("data")
 
-            sessionIdBox.val(seshId)
             userEmailBox.val(emailBox)
 
             var userEmailVal = $("#user-email").val()
-            var seshId = sessionStorage.setItem("sessionIdBoxVal", sessionIdBoxVal)
             var header = document.getElementById('user-heading')
             var input = document.getElementById('session-id')
             var commentId = $("#comment-id")
-            var heading = `<h2>${userEmailVal} Comments<h2/>`
+            var heading = `<h2>${emailBox} Comments<h2/>`
 
             header.innerHTML = heading
 
@@ -152,7 +145,7 @@
             */
             $.ajax({
                 type: "GET",
-                url: "@Url.Action("GetUserComments", "Comment")" + "?" + "email=" + userEmailVal,
+                url: "@Url.Action("GetUserComments", "Comment")" + "?" + "email=" + emailBox,
                 dataType: "JSON",
                 success: function (response) {
                     commentArray = response
@@ -185,13 +178,13 @@
                 $.ajax({
                 type: "POST",
                 url: "@Url.Action("PostComments", "Comment")" + "?" + emailParam + 
-                                                                          userEmailVal + 
+                                                                          emailBox + 
                                                                           commentParam + 
                                                                           commentTextBox.val() +
                                                                           createdDate +
                                                                           createdDateBox.val() +
                                                                           sessionIdParam + 
-                                                                          sessionIdBox.val(),
+                                                                          seshId,
                     dataType: "JSON",
                     success: function (response) {
                         buildUserCommentsTabel(commentArray)
@@ -257,7 +250,7 @@
 
                 for (var i = 0; i < data.length; i++) {
 
-                    if (sessionIdBox.val() === data[i].session_id){
+                    if (seshId === data[i].session_id){
 
                         var buttons = `<button>delete</button>`
                     }
