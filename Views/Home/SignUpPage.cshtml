@@ -20,6 +20,8 @@
                 <br />
                 <a href="@Url.Action("LoginPage", "Home")" class="sign-up">Login?</a>
                 <h4 id="login-error2">User allready created</h4>
+                <h4 id="login-error1">Enter an email</h4>
+                <h4 id="login-error3">Please fill out the fields</h4>
                 <h4 class="login-good" id="login-good">Account created</h4>
             </div>
         </div>
@@ -36,10 +38,13 @@
                 var passwordInputClear = $('#password-input').val("");
                 var loginGood = $("#login-good")
                 var loginError2 = $("#login-error2")
+                var loginError1 = $("#login-error1")
+                var loginError3 = $("#login-error1")
                 var passwordParam = "&Password="
                 var emailParam = "Email=" + emailInput + passwordParam + passwordInput;
                 var loginValid = "LOGIN VALID";
                 var loginInvalid = "LOGIN INVALID";
+                var loginInvalid2 = "ENTER A EMAIL";
 
                 /*
                     when the login button is clicked an ajax GET request is activated
@@ -56,17 +61,26 @@
                         if (data == loginValid) {
                             console.log(data)
                             loginError2.hide()
+                            loginError1.hide()
                             loginGood.show()
                             emailInputClear
                             passwordInputClear
                             email.val()
                         }
 
-                        else if (data == loginInvalid) {
+                        if (data == loginInvalid) {
                             loginError2.show()
-                            loginError.hide()
+                            loginGood.hide()
                             emailInputClear
                             passwordInputClear
+                        }
+
+                        if (data == loginInvalid2){
+                            loginError1.show()
+                        }
+
+                        else{
+                            loginError3.show()
                         }
                     }
                 })

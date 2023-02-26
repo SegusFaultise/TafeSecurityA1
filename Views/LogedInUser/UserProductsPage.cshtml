@@ -77,7 +77,6 @@
                     <input id="comment-id" />
                     <br />
                     <button id="add-comment">Add</button>
-                    <button id="update-comment">Update</button>
             </div>
         </div>
     </section>
@@ -254,26 +253,37 @@
                     if (seshId === data[i].session_id){
 
                         var deleteButton = `<button>delete</button>`
-                        var editButton = `<button>edit</button>`
+                        var updateButton = `<button>update</button>`
                     }
                     else {
                         var deleteButton = ``
-                        var editButton = ``
+                        var updateButton = ``
                     }
 
                     var row = `<tr>
-                                   <td id="data-id">${data[i].comment_id}</td>
+                                   <td class="w" id="data-id">${data[i].comment_id}</td>
                                    <td>${data[i].email}</td>
                                    <td>${data[i].product}</td>
                                    <td>${data[i].comment_text}</td>
                                    <td>${data[i].created_date}</td>
-                                   <td class="td-button" id="edit-button">${editButton}</td>
+                                   <td class="td-button" id="update-button">${updateButton}</td>
                                    <td class="td-button" id="delete-button">${deleteButton}</td>
                                </tr>`
 
                     table.innerHTML += row
 
-                    $("#comment-id").val(data[i].comment_id)
+                    var cells = table.getElementsByClassName('w')
+                    var td = table.getElementsByClassName('td-button')
+
+                    $(td).click(function (event){
+                        commentId.val("dd")
+                    })
+
+                    for (var i = 0, len = cells.length; i < len; i++) {
+                        cells[i].onclick = function () {
+                            $("#comment-id").val(this.innerHTML)
+                        };
+                    }
                 }
             }
 
