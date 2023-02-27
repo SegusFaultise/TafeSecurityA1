@@ -86,6 +86,8 @@
         var userArray = []
         var commentArray = []
         var productIdInput = $("#product-id-input")
+        var commentIdInput = $("#comment-id-input")
+        var userIdInput = $("#user-id-input")
         var descriptionInput = $("#description-input")
         var priceInput = $("#price-input")
         var productNameInput = $("#product-input")
@@ -128,12 +130,20 @@
             for (var i = 0; i < data.length; i++) {
 
                 var row = `<tr>
-                                <td>${data[i].comment_id}</td>
+                                <td class="w">${data[i].comment_id}</td>
                                 <td>${data[i].email}</td>
                                 <td>${data[i].product}</td>
                                 <td>${data[i].comment_text}</td>
                            </tr>`
                 table.innerHTML += row
+
+                var cells = table.getElementsByClassName('w')
+
+                for (var i = 0, len = cells.length; i < len; i++) {
+                    cells[i].onclick = function () {
+                        $("#comment-id-input").val(this.innerHTML)
+                    };
+                }
             }
         }
 
@@ -147,10 +157,18 @@
             for (var i = 0; i < data.length; i++) {
 
                 var row = `<tr>
-                                <td>${data[i].user_id}</td>
+                                <td class="w">${data[i].user_id}</td>
                                 <td>${data[i].email}</td>
                            </tr>`
                 table.innerHTML += row
+
+                var cells = table.getElementsByClassName('w')
+
+                for (var i = 0, len = cells.length; i < len; i++) {
+                    cells[i].onclick = function () {
+                        $("#user-id-input").val(this.innerHTML)
+                    };
+                }
             }
         }
 
@@ -205,6 +223,46 @@
                 url: "@Url.Action("DeleteProduct", "Product")" + "?" +
                                                                "product_id=" +
                                                                productIdInput.val(),
+                dataType: "JSON",
+                success: function (response) {
+                    console.log(response)
+                }
+            })
+
+            location.reload()
+        })
+
+        /*
+            Update product via an ajax PUT request
+            linked to the product controller ->
+        */
+        $("#delete-comment-button").click(function (event) {
+
+            $.ajax({
+                type: "DELETE",
+                url: "@Url.Action("DeleteUserComment", "Comment")" + "?" +
+                                                               "comment_id=" +
+                                                               commentIdInput.val(),
+                dataType: "JSON",
+                success: function (response) {
+                    console.log(response)
+                }
+            })
+
+            location.reload()
+        })
+
+        /*
+            Update product via an ajax PUT request
+            linked to the product controller ->
+        */
+        $("#delete-user-button").click(function (event) {
+
+            $.ajax({
+                type: "DELETE",
+                url: "@Url.Action("DeleteUser", "User")" + "?" +
+                                                               "user_id=" +
+                                                               userIdInput.val(),
                 dataType: "JSON",
                 success: function (response) {
                     console.log(response)
