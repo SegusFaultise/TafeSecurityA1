@@ -96,7 +96,7 @@ namespace SQL_WEB_APPLICATION.Models.Repository
                 await connection.ExecuteAsync(query, id);
             }
         }
-        #endregion`
+        #endregion
     }
 }
 #endregion

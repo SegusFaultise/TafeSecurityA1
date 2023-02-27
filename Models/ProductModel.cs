@@ -7,7 +7,7 @@ namespace SQL_WEB_APPLICATION.Models
         public string? product_name { get; set; } = null!;
         public int? product_price { get; set; } = null!;
         public string? product_description { get; set; } = null!;
-        public string? updated_date { get; set; } = null!;
+        public DateTime? updated_date { get; set; } = null!;
     }
 }
 #endregion

@@ -78,6 +78,11 @@ h2 {
     color: #F5FF00;
 }
 
+h5 {
+    font-family: Arial;
+    color: white;
+}
+
 h4 {
     display: none;
     text-transform: uppercase;

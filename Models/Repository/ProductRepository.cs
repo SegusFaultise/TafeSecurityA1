@@ -41,6 +41,49 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             }
         }
         #endregion
+
+        #region Creates a product
+        public async Task CreateProduct(ProductModel productModel)
+        {
+            var query = "INSERT INTO [Products] (product_price, product_description, product_name) " +
+                        "VALUES (@product_price, @product_description, @product_name) ";
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query.Trim(), productModel);
+            }
+        }
+        #endregion
+
+        #region Updates product details
+        public async Task UpdateProduct(ProductModel productModel)
+        {
+            var query = "UPDATE [Products] " +
+                        "SET product_price = @product_price, " +
+                        "product_description = @product_description, " +
+                        "product_name = @product_name, " +
+                        "updated_date = @updated_date " +
+                        "WHERE product_id = @product_id ";
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, productModel);
+            }
+        }
+        #endregion
+
+        #region Delete product
+        public async Task DeleteProduct(ProductModel id)
+        {
+            var query = "DELETE [Products] " +
+                        "WHERE product_id = @product_id ";
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, id);
+            }
+        }
+        #endregion`
     }
 }
 #endregion

@@ -24,8 +24,16 @@
                     <tbody id="product-table">
 
                     </tbody>
-
                 </table>
+
+                <button id="add-product-button">Add</button>
+                <button id="update-product-button">Update</button>
+                <button id="delete-product-button">Delete</button>
+
+                <input placeholder="product.." id="product-input"/>
+                <input placeholder="price.." id="price-input"/>
+                <input placeholder="description.." id="description-input" />
+                <input placeholder="Pick a product id.." id="product-id-input"/>
             </div>
         </div>
 
@@ -45,6 +53,10 @@
                     </tbody>
 
                 </table>
+
+                <button id="delete-comment-button">Delete</button>
+
+                <input placeholder="Pick comment id.." id="comment-id-input" />
             </div>
         </div>
 
@@ -55,7 +67,6 @@
                     <tr id="table-info">
                         <th>Id</th>
                         <th>Email</th>
-                        <th>Password</th>
                     </tr>
 
                     <tbody id="users-table">
@@ -63,6 +74,9 @@
                     </tbody>
 
                 </table>
+                <button id="delete-user-button">Delete</button>
+
+                <input placeholder="pick user id.." id="user-id-input">
             </div>
         </div>
     </section>
@@ -71,6 +85,10 @@
         var productArray = []
         var userArray = []
         var commentArray = []
+        var productIdInput = $("#product-id-input")
+        var descriptionInput = $("#description-input")
+        var priceInput = $("#price-input")
+        var productNameInput = $("#product-input")
 
         /*Builds a table that displays all products,
         and if a new product is created the table
@@ -80,17 +98,23 @@
             var table = document.getElementById('product-table')
 
             for (var i = 0; i < data.length; i++) {
-                var buttons = `<button>delete</button>`
 
                 var row = `<tr>
-                                <td>${data[i].product_id}</td>
+                                <td class="w">${data[i].product_id}</td>
                                 <td>${data[i].product_name}</td>
                                 <td>${data[i].product_price}$</td>
                                 <td>${data[i].product_description}</td>
                                 <td>${data[i].updated_date}</td>
-                                <td class="td-button">${buttons}</td>
                             </tr>`
                 table.innerHTML += row
+
+                    var cells = table.getElementsByClassName('w')
+
+                    for (var i = 0, len = cells.length; i < len; i++) {
+                        cells[i].onclick = function () {
+                            $("#product-id-input").val(this.innerHTML)
+                        };
+                    }
             }
         }
 
@@ -102,14 +126,12 @@
             var table = document.getElementById('all-comments-table')
 
             for (var i = 0; i < data.length; i++) {
-                var buttons = `<button>delete</button>`
 
                 var row = `<tr>
                                 <td>${data[i].comment_id}</td>
                                 <td>${data[i].email}</td>
-                                <td>${data[i].fk_product_id}</td>
+                                <td>${data[i].product}</td>
                                 <td>${data[i].comment_text}</td>
-                                <td class="td-button">${buttons}</td>
                            </tr>`
                 table.innerHTML += row
             }
@@ -123,13 +145,10 @@
             var table = document.getElementById('users-table')
 
             for (var i = 0; i < data.length; i++) {
-                var buttons = `<button>delete</button>`
 
                 var row = `<tr>
                                 <td>${data[i].user_id}</td>
                                 <td>${data[i].email}</td>
-                                <td>${data[i].password}</td>
-                                <td class="td-button">${buttons}</td>
                            </tr>`
                 table.innerHTML += row
             }
@@ -164,7 +183,6 @@
 
         /*Gets all comments via an ajax GET request 
         linked to the product controller*/
-
         $.ajax({
             type: "GET",
             url: "@Url.Action("GetComments", "Comment")",
@@ -174,6 +192,77 @@
                 buildAllCommentsTabel(commentArray)
                 console.log(commentArray)
             }
+        })
+
+        /*
+            Update product via an ajax PUT request
+            linked to the product controller ->
+        */
+        $("#delete-product-button").click(function (event) {
+
+            $.ajax({
+                type: "DELETE",
+                url: "@Url.Action("DeleteProduct", "Product")" + "?" +
+                                                               "product_id=" +
+                                                               productIdInput.val(),
+                dataType: "JSON",
+                success: function (response) {
+                    console.log(response)
+                }
+            })
+
+            location.reload()
+        })
+
+        /*
+            Deletes product via an ajax DELETE request
+            linked to the product controller ->
+        */
+        $("#update-product-button").click(function (event) {
+
+                $.ajax({
+                    type: "PUT",
+                    url: "@Url.Action("PutProduct", "Product")" + "?" +
+                                                                   "product_id="
+                                                                   + productIdInput.val() +
+                                                                   "&product_name=" +
+                                                                   productNameInput.val() +
+                                                                   "&product_price=" +
+                                                                   priceInput.val() +
+                                                                   "&product_description=" +
+                                                                   descriptionInput.val(),
+                    dataType: "JSON",
+                    success: function (response) {
+                        console.log(response)
+                    }
+            })
+
+            location.reload()
+        })
+
+        /*
+            Creates a product via an ajax DELETE request
+            linked to the product controller ->
+        */
+        $("#add-product-button").click(function (event) {
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("PostProduct", "Product")" + "?" +
+                                                            "product_name=" +
+                                                            productNameInput.val() +
+                                                            "&product_price=" +
+                                                            priceInput.val() +
+                                                            "&product_description=" +
+                                                            descriptionInput.val(),
+
+                dataType: "JSON",
+                success: function (response) {
+                    console.log(response)
+                }
+            })
+
+            location.reload()
         })
     </script>
 </body>

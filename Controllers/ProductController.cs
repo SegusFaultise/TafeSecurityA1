@@ -41,6 +41,37 @@ namespace SQL_WEB_APPLICATION.Controllers
             return Ok(products);
         }
         #endregion
+
+        #region Create new product
+        [HttpPost]
+        [Route("PostProduct")]
+        public async Task<IActionResult> PostProduct(ProductModel productModel)
+        {
+            await _productRepository.CreateProduct(productModel);
+            return Ok("Product created");
+        }
+        #endregion
+
+        #region Update product
+        [HttpPut]
+        [Route("PutProduct")]
+        public async Task<IActionResult> PutProduct(ProductModel productModel)
+        {
+            productModel.updated_date = DateTime.Now;
+            await _productRepository.UpdateProduct(productModel);
+            return Ok("Product updated");
+        }
+        #endregion
+
+        #region Update product
+        [HttpDelete]
+        [Route("DeleteProduct")]
+        public async Task<IActionResult> DeleteProduct(ProductModel id)
+        {
+            await _productRepository.DeleteProduct(id);
+            return Ok("Product deleted");
+        }
+        #endregion
     }
 }
 #endregion
