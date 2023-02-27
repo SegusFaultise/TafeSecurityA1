@@ -4,6 +4,7 @@ using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models;
 using SQL_WEB_APPLICATION.Models.Dto;
 using SQL_WEB_APPLICATION.Models.Repository;
+using System.Diagnostics.Contracts;
 #endregion
 
 #region Comment controller
@@ -54,6 +55,24 @@ namespace SQL_WEB_APPLICATION.Controllers
             return Ok(user_comments);
         }
         #endregion
+
+        #region Updates users comments 
+        [HttpPut]
+        [Route("PutUserComment")]
+        public async Task<IActionResult> PutUserComment(CommentModel commentModel)
+        {
+            await _commentRepository.UpdateUserComment(commentModel);
+            return Ok("Comment updated");
+        }
+        #endregion
+
+        [HttpDelete]
+        [Route("DeleteUserComment")]
+        public async Task<IActionResult> DeleteUserComment(CommentModel id)
+        {
+            await _commentRepository.DeleteUserComment(id);
+            return Ok("Comment deleted");
+        }
     }
 }
 #endregion

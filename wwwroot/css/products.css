@@ -102,6 +102,11 @@ td {
     border: none;
 }
 
+.td-button-update {
+    border: none;
+}
+
+
 select {
     margin-top: 50px;
     margin-bottom: 20px;
@@ -123,6 +128,11 @@ input {
 
 .td-button:hover {
     background-color:#0a0a0aff;
+    cursor: default;
+}
+
+.td-button-update:hover {
+    background-color: #0a0a0aff;
     cursor: default;
 }
 

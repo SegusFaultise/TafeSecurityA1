@@ -62,6 +62,33 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             }
         }
         #endregion
+
+        #region Updates user comment
+        public async Task UpdateUserComment(CommentModel commentModel)
+        {
+            var query = "UPDATE [Comments] " +
+                        "SET comment_text = @comment_text " +
+                        "WHERE comment_id = @comment_id ";
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, commentModel);
+            }
+        }
+        #endregion
+
+        #region Delete user comment
+        public async Task DeleteUserComment(CommentModel id)
+        {
+            var query = "DELETE [Comments] " +
+                        "WHERE comment_id = @comment_id ";
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, id);
+            }
+        }
+        #endregion
     }
 }
 #endregion

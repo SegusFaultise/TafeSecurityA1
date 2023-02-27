@@ -266,17 +266,54 @@
                                    <td>${data[i].product}</td>
                                    <td>${data[i].comment_text}</td>
                                    <td>${data[i].created_date}</td>
-                                   <td class="td-button" id="update-button">${updateButton}</td>
+                                   <td class="td-button-update" id="update-button">${updateButton}</td>
                                    <td class="td-button" id="delete-button">${deleteButton}</td>
                                </tr>`
 
                     table.innerHTML += row
 
                     var cells = table.getElementsByClassName('w')
-                    var td = table.getElementsByClassName('td-button')
+                    var tdUpdate = table.getElementsByClassName('td-button-update')
+                    var tdDelete = table.getElementsByClassName('td-button')
 
-                    $(td).click(function (event){
-                        commentId.val("dd")
+                    $(tdUpdate).click(function (event){
+                        /*
+                            Gets current users via an ajax GET request
+                            linked to the comment controller ->
+                        */
+                        $.ajax({
+                            type: "PUT",
+                            url: "@Url.Action("PutUserComment", "Comment")" + "?" + 
+                                                                            "comment_id=" 
+                                                                            + commentId.val() 
+                                                                            + "&comment_text=" 
+                                                                            + commentTextBox.val(),
+                            dataType: "JSON",
+                            success: function (response) {
+                                console.log(response)
+                            }
+                        })
+
+                        location.reload()
+                    })
+
+                    $(tdDelete).click(function (event) {
+                        /*
+                            Gets current users via an ajax GET request
+                            linked to the comment controller ->
+                        */
+                        $.ajax({
+                            type: "DELETE",
+                            url: "@Url.Action("DeleteUserComment", "Comment")" + "?" +
+                                                                               "comment_id="
+                                                                               + commentId.val(),
+                            dataType: "JSON",
+                            success: function (response) {
+                                console.log(response)
+                            }
+                        })
+
+                        location.reload()
                     })
 
                     for (var i = 0, len = cells.length; i < len; i++) {
