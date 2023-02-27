@@ -1,0 +1,99 @@
+﻿body {
+    background-color: black;
+    background-size: unset;
+    resize: both;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    background-color: #0a0a0aff;
+    width: 100%;
+    max-width: 100%;
+    height: 60px;
+    border: solid;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-image: linear-gradient(to left, #FF0078, #FF0078, #05FAF5, #F5FF00) 20;
+    box-shadow: inset 0px 0px 5px -5px #73FF00, inset 0px 0px 5px -5px #FF00F7, inset 0px 0px 5px -5px #05FA7A, inset 0px 0px 5px -5px #73FF00, inset 0px 0px 5px -5px #FF8900;
+    margin-left: -10px;
+    margin-right: 0px;
+    margin-top: -20px;
+    text-align: center;
+}
+
+.nav-bar {
+    display: flex;
+    list-style-type: none;
+    font-family: Arial;
+}
+
+.logo {
+    margin-top: -7px;
+    text-transform: uppercase;
+    color: whitesmoke;
+    width: 250vh;
+    margin-left: -122vh;
+    cursor: pointer;
+}
+
+.logo:hover {
+    text-shadow: 0px 0 5px white;
+}
+
+header ul li {
+    padding-right: 20px;
+    padding-top: 8px;
+    margin-right: 0px;
+}
+
+header ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: whitesmoke;
+}
+
+.hero-text {
+    color: white;
+    text-align:center;
+    height: 0px;
+    margin-top: 0px;
+    position: center;
+    padding-top: 100px;
+    text-transform: uppercase;
+    font-family: Arial;
+}
+
+.hero-text p {
+    font-size: 2ch;
+    margin-top: -50px;
+    text-transform: none;
+}
+
+.hero-text h2 {
+    font-size: 10ch;
+    text-shadow: 0px 0 5px #73FF00;
+    color: #00FF0C;
+}
+
+.about-button:hover {
+    text-shadow: 0px 0 5px #FF00F7;
+    color: #FF0078;
+    
+}
+
+.products-button:hover {
+    text-shadow: 0px 0 5px #05FA7A;
+    color: #05FAF5;
+}
+
+.home-button:hover {
+    text-shadow: 0px 0 5px #73FF00;
+    color: #00FF0C;
+}
+
+.login-button:hover {
+    text-shadow: 0px 0 5px #FF8900;
+    color: #F5FF00;
+}

@@ -1,0 +1,121 @@
+﻿.hero-text {
+    display: none;
+}
+
+﻿body {
+    background-image: none;
+    background-color: #d1d1d176;
+}
+
+.first-div {
+    display: inline-block;
+    width: 99.6%;
+    position: center;
+    border: solid;
+    border-color: #2a2929ff;
+    background-color: #0a0a0aff;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.login-good {
+    text-transform: uppercase;
+    font-family: Arial;
+    text-shadow: 0px 0 5px #73FF00;
+    color: #00FF0C;
+}
+
+.login-div {
+    text-align: center;
+}
+
+button {
+    margin-top: 20px;
+    width: 120px;
+    height: 30px;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #0a0a0aff;
+    border-width: 2px;
+    border-color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    border-radius: 10px;
+    box-shadow: 0px 0 5px #05FA7A;
+    border-color: #05FAF5;
+    box-shadow: 0px 0 5px #FF8900;
+    text-shadow: 0px 0 5px #FF8900;
+    color: #F5FF00;
+    border-color: #F5FF00;
+    transition: 0.5s;
+}
+
+input {
+    color: white;
+    width: 16vh;
+    background-color: transparent;
+    border-color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid;
+}
+
+textarea {
+    margin-left: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: Arial;
+    text-shadow: 0px 0 5px #FF8900;
+    color: #F5FF00;
+}
+
+h5 {
+    font-family: Arial;
+    color: white;
+}
+
+h4 {
+    display: none;
+    text-transform: uppercase;
+    font-family: Arial;
+    text-shadow: 0px 0 5px #FF007D;
+    color: #FF0200;
+}
+
+.sign-up {
+    padding-bottom: 30px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    font-family: Arial;
+}
+
+.sign-up:hover {
+    transition: 0.5s;
+    text-shadow: 0px 0 5px #FF8900;
+    color: #F5FF00;
+    cursor: pointer;
+}
+
+.admin-login {
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    font-family: Arial;
+}
+
+.admin-login:hover {
+    transition: 0.5s;
+    text-shadow: 0px 0 5px #FF8900;
+    color: #F5FF00;
+    cursor: pointer;
+}

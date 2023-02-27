@@ -1,0 +1,143 @@
+﻿.hero-text {
+    display: none;
+}
+
+﻿body {
+    background-image: none;
+    background-color: #d1d1d176;
+}
+
+.first-div {
+    display: inline-block;
+    width: 99.6%;
+    position: center;
+    border: solid;
+    border-color: #2a2929ff;
+    background-color: #0a0a0aff;
+    margin-top: 5%;
+    margin-bottom: -40px;
+    border-radius: 10px;
+}
+
+.second-div {
+    display: inline-block;
+    width: 99.6%;
+    position: center;
+    border: solid;
+    margin-bottom: -40px;
+    border-color: #2a2929ff;
+    background-color: #0a0a0aff;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.login-div {
+    text-align: center;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border: solid;
+    border-radius: 5px;
+    background-color: #0a0a0aff;
+    border-width: 2px;
+    border-color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    border-radius: 10px;
+    box-shadow: 0px 0 5px #05FA7A;
+    border-color: #05FAF5;
+    text-shadow: 0px 0 5px #05FA7A;
+    color: #05FAF5;
+    transition: 0.5s;
+}
+
+h2 {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Arial;
+    text-shadow: 0px 0 5px #05FA7A;
+    color: #05FAF5;
+    padding-left: 10px;
+}
+
+table {
+    margin-right: -70px; 
+    color: white;
+    padding-top: 40px;
+    text-align: center;
+    font-family: Arial; 
+    padding-left: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+th {
+    font-size: 20px;
+    border: solid;
+    border-width: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #05FAF5;
+}
+
+td {
+    border: solid;
+    border-width: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #2a2929ff;
+}
+
+.td-button {
+    border: none;
+}
+
+.td-button-update {
+    border: none;
+}
+
+
+select {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    width: 20vh;
+}
+
+input {
+    margin-left: 60px;
+    color: white;
+    width: 19vh;
+    background-color: transparent;
+    border-color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid;
+}
+
+.td-button:hover {
+    background-color:#0a0a0aff;
+    cursor: default;
+}
+
+.td-button-update:hover {
+    background-color: #0a0a0aff;
+    cursor: default;
+}
+
+td:hover {
+    border-color: #05FAF5;
+    background-color: #2a2929ff;
+    cursor: pointer;
+}
