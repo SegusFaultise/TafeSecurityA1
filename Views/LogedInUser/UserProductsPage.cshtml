@@ -74,7 +74,7 @@
                     </select>
 
                     <input id="comment-text" placeholder="enter your comment.."/>
-                    <input id="comment-id" />
+                    <input readonly="readonly" id="comment-id" />
                     <br />
                     <button id="add-comment">Add</button>
             </div>
@@ -278,7 +278,7 @@
 
                     $(tdUpdate).click(function (event){
                         /*
-                            Gets current users via an ajax GET request
+                            Update current user comment via an ajax PUT request
                             linked to the comment controller ->
                         */
                         $.ajax({
@@ -299,7 +299,7 @@
 
                     $(tdDelete).click(function (event) {
                         /*
-                            Gets current users via an ajax GET request
+                            Deletes current user comment via an ajax DELETE request
                             linked to the comment controller ->
                         */
                         $.ajax({
