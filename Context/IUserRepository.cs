@@ -10,7 +10,6 @@ namespace SQL_WEB_APPLICATION.Context
     {
         public Task<IEnumerable<UserModel>> GetUsers();
         public Task<IEnumerable<UserModel>> GetAllUsers();
-        public Task<IEnumerable<UserModel>> CheckUsers();
         public Task<IEnumerable<UserModel>> CheckUsersId();
         public Task PostUser(UserModel userModel);
         public Task UpdateUser(UserModel userModel);

@@ -39,7 +39,7 @@
                 var loginGood = $("#login-good")
                 var loginError2 = $("#login-error2")
                 var loginError1 = $("#login-error1")
-                var loginError3 = $("#login-error1")
+                var loginError3 = $("#login-error3")
                 var passwordParam = "&Password="
                 var emailParam = "Email=" + emailInput + passwordParam + passwordInput;
                 var loginValid = "LOGIN VALID";
@@ -58,6 +58,7 @@
                     dataType: "JSON",
                     data: Request,
                     success: function (data) {
+
                         if (data == loginValid) {
                             console.log(data)
                             loginError2.hide()
@@ -69,6 +70,7 @@
                         }
 
                         if (data == loginInvalid) {
+                            loginError1.hide()
                             loginError2.show()
                             loginGood.hide()
                             emailInputClear
@@ -76,6 +78,8 @@
                         }
 
                         if (data == loginInvalid2){
+                            loginError2.hide()
+                            loginError3.hide()
                             loginError1.show()
                         }
 

@@ -88,12 +88,8 @@
 
                             window.location.href = goToUrl
                         }
-                        if (passwordInput | emailInput == "") {
-                            loginError.show()
-                            loginError2.hide()
-                        }
 
-                        else if (data == loginInvalid) {
+                        if (data == loginInvalid) {
                             loginError2.show()
                             loginError.hide()
                             emailInputClear

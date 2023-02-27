@@ -43,19 +43,6 @@ namespace SQL_WEB_APPLICATION.Models.Repository
         }
         #endregion
 
-        #region Gets user_id based on loged in user
-        public async Task<IEnumerable<UserModel>> CheckUsers()
-        {
-            var query = "SELECT user_id, email, password FROM [User]";
-
-            using (var connection = _context.CreateConnection())
-            {
-                var users = await connection.QueryAsync<UserModel>(query.Trim());
-                return users.ToList();
-            }
-        }
-        #endregion
-
         #region Gets user_id and updates details
         public async Task<IEnumerable<UserModel>> CheckUsersId()
         {
@@ -64,6 +51,7 @@ namespace SQL_WEB_APPLICATION.Models.Repository
             using (var connection = _context.CreateConnection())
             {
                 var users = await connection.QueryAsync<UserModel>(query);
+
                 return users.ToList();
             }
         }

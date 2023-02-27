@@ -53,7 +53,7 @@ namespace SQL_WEB_APPLICATION.Controllers
         #region Authenticates user login
         [HttpGet]
         [Route("AuthenticateLogin")]
-        [AutoValidateAntiforgeryToken]
+        
         public async Task<IActionResult> AuthenticateLogin(UserModel? user_model)
         {
             string message;
@@ -65,22 +65,18 @@ namespace SQL_WEB_APPLICATION.Controllers
 
             try
             {
-                if (login_status == null)
-                {
-                    message = "LOGIN INVALID";
-                }
-
-                if (email_valadtion == false)
-                {
-                    message = "ENTER A EMAIL";
-                }
-
-                else
+                if(login_status != null)
                 {
                     string id = HttpContext.Session.Id;
                     HttpContext.Session.GetString(id);
                     message = "LOGIN VALID";
                 }
+
+                else
+                {
+                    message = "LOGIN INVALID";
+                }
+
                 return Json(message);
             }
             catch (Exception ex) 
@@ -96,21 +92,21 @@ namespace SQL_WEB_APPLICATION.Controllers
         public async Task<IActionResult> CheckLogin(UserModel? user_model)
         {
             string message;
-            var check_status = _userRepository.CheckUsers().Result.Where(m => m.email.Trim() 
+            var check_status = _userRepository.GetAllUsers().Result.Where(m => m.email.Trim() 
                                                                         == user_model.email &&
                                                                         m.password.Trim() 
                                                                         == user_model.password).FirstOrDefault();
             try
             {
-                if (check_status == null)
+                if (check_status != null)
                 {
-                    message = "LOGIN INVALID";
+                    message = "LOGIN VALID";
+                    return Ok(check_status.user_id);
                 }
 
                 else
                 {
-                    message = "LOGIN VALID";
-                    return Ok(check_status.user_id);
+                    message = "LOGIN INVALID";
                 }
 
                 return Json(message);
@@ -146,18 +142,18 @@ namespace SQL_WEB_APPLICATION.Controllers
         public async Task<IActionResult> CheckUser(UserModel? user_model)
         {
             string message;
-            var check_status = _userRepository.CheckUsers().Result.Where(m => m.email.Trim()
-                                                                        == user_model.email).FirstOrDefault();
+            var check_status = _userRepository.GetUsers().Result.Where(m => m.email.Trim() 
+                                                                         == user_model.email).FirstOrDefault();
             var email_valadtion = EmailValidation(user_model.email);
 
             try
             {
-                if (check_status == null)
+                if (check_status != null)
                 {
                     message = "LOGIN INVALID";
                 }
 
-                if (email_valadtion == false)
+                else if (email_valadtion == false)
                 {
                     message = "ENTER A EMAIL";
                 }
@@ -167,7 +163,7 @@ namespace SQL_WEB_APPLICATION.Controllers
                     message = "LOGIN VALID";
                     await _userRepository.PostUser(user_model);
                 }
-
+                
                 return Json(message);
             }
             catch (Exception ex)
