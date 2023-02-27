@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models;
-using SQL_WEB_APPLICATION.Models.Dto;
+using SQL_WEB_APPLICATION.Models.DataObject;
 using SQL_WEB_APPLICATION.Models.Repository;
 using System.Diagnostics.Contracts;
 #endregion
@@ -28,9 +28,15 @@ namespace SQL_WEB_APPLICATION.Controllers
         [Route("GetComments")]
         public async Task<IActionResult> GetComments()
         {
-            var comments = await _commentRepository.GetComments();
-            
-            return Ok(comments);
+            try
+            {
+                var comments = await _commentRepository.GetComments();
+                return Ok(comments);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
         #endregion
 
@@ -39,10 +45,16 @@ namespace SQL_WEB_APPLICATION.Controllers
         [Route("PostComments")]
         public async Task<IActionResult> PostComments(CommentModel commentModel)
         {
-
-            commentModel.created_date = DateTime.Now;
-            await _commentRepository.PostUserComments(commentModel);
-            return Ok();
+            try
+            {
+                commentModel.created_date = DateTime.Now;
+                await _commentRepository.PostUserComments(commentModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
         #endregion
 
@@ -51,8 +63,15 @@ namespace SQL_WEB_APPLICATION.Controllers
         [Route("GetUserComments")]
         public async Task<IActionResult> GetUserComments(CommentModel commentModel)
         {
-            var user_comments = await _commentRepository.GetUserComments(commentModel);
-            return Ok(user_comments);
+            try
+            {
+                var user_comments = await _commentRepository.GetUserComments(commentModel);
+                return Ok(user_comments);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
         #endregion
 
@@ -61,17 +80,31 @@ namespace SQL_WEB_APPLICATION.Controllers
         [Route("PutUserComment")]
         public async Task<IActionResult> PutUserComment(CommentModel commentModel)
         {
-            await _commentRepository.UpdateUserComment(commentModel);
-            return Ok("Comment updated");
+            try
+            {
+                await _commentRepository.UpdateUserComment(commentModel);
+                return Ok("Comment updated");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         #endregion
 
         [HttpDelete]
         [Route("DeleteUserComment")]
-        public async Task<IActionResult> DeleteUserComment(CommentModel id)
+        public async Task<IActionResult> DeleteUserComment(CommentDataObject commentId)
         {
-            await _commentRepository.DeleteUserComment(id);
-            return Ok("Comment deleted");
+            try
+            {
+                await _commentRepository.DeleteUserComment(commentId);
+                return Ok("Comment deleted");
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
     }
 }

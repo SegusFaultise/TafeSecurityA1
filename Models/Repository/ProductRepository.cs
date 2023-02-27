@@ -1,6 +1,7 @@
 ﻿#region Imports
 using Dapper;
 using SQL_WEB_APPLICATION.Context;
+using SQL_WEB_APPLICATION.Models.DataObject;
 #endregion
 
 #region Product repository
@@ -73,14 +74,14 @@ namespace SQL_WEB_APPLICATION.Models.Repository
         #endregion
 
         #region Delete product
-        public async Task DeleteProduct(ProductModel id)
+        public async Task DeleteProduct(ProductDataObject product_id)
         {
             var query = "DELETE [Products] " +
                         "WHERE product_id = @product_id ";
 
             using (var connection = _context.CreateConnection())
             {
-                await connection.ExecuteAsync(query, id);
+                await connection.ExecuteAsync(query, product_id);
             }
         }
         #endregion`

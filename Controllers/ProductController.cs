@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models;
+using SQL_WEB_APPLICATION.Models.DataObject;
 using SQL_WEB_APPLICATION.Models.Repository;
 using System.Linq;
 #endregion
@@ -25,20 +26,34 @@ namespace SQL_WEB_APPLICATION.Controllers
         #region Gets all of the products
         [HttpGet]
         [Route("GetProducts")]
-        public async Task<IActionResult> GetProducts(ProductModel? productmodel)
+        public async Task<IActionResult> GetProducts()
         {
-            var products = await _productRepository.GetProducts();
-            return Ok(products);
+            try
+            {
+                var products = await _productRepository.GetProducts();
+                return Ok(products);
+            }
+            catch (Exception ex) 
+            {
+                return Problem(ex.Message);
+            }
         }
         #endregion
 
         #region Gets only the product name
         [HttpGet]
         [Route("GetProductName")]
-        public async Task<IActionResult> GetProductName(ProductModel? productmodel)
+        public async Task<IActionResult> GetProductName()
         {
-            var products = await _productRepository.GetProductName();
-            return Ok(products);
+            try
+            {
+                var products = await _productRepository.GetProductName();
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
         #endregion
 
@@ -47,8 +62,15 @@ namespace SQL_WEB_APPLICATION.Controllers
         [Route("PostProduct")]
         public async Task<IActionResult> PostProduct(ProductModel productModel)
         {
-            await _productRepository.CreateProduct(productModel);
-            return Ok("Product created");
+            try
+            {
+                await _productRepository.CreateProduct(productModel);
+                return Ok("Product created");
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
         #endregion
 
@@ -57,19 +79,33 @@ namespace SQL_WEB_APPLICATION.Controllers
         [Route("PutProduct")]
         public async Task<IActionResult> PutProduct(ProductModel productModel)
         {
-            productModel.updated_date = DateTime.Now;
-            await _productRepository.UpdateProduct(productModel);
-            return Ok("Product updated");
+            try
+            {
+                productModel.updated_date = DateTime.Now;
+                await _productRepository.UpdateProduct(productModel);
+                return Ok("Product updated");
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
         #endregion
 
         #region Update product
         [HttpDelete]
         [Route("DeleteProduct")]
-        public async Task<IActionResult> DeleteProduct(ProductModel id)
+        public async Task<IActionResult> DeleteProduct(ProductDataObject productId)
         {
-            await _productRepository.DeleteProduct(id);
-            return Ok("Product deleted");
+            try
+            {
+                await _productRepository.DeleteProduct(productId);
+                return Ok("Product deleted");
+            }
+            catch(Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
         #endregion
     }

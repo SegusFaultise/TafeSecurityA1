@@ -2,8 +2,8 @@
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using SQL_WEB_APPLICATION.Context;
-using SQL_WEB_APPLICATION.Models.Dto;
 using SQL_WEB_APPLICATION.Models;
+using SQL_WEB_APPLICATION.Models.DataObject;
 using System.Data;
 #endregion
 
@@ -22,10 +22,6 @@ namespace SQL_WEB_APPLICATION.Models.Repository
         #region Creates a new user comment with a forigen key from the [Product] table
         public async Task PostUserComments(CommentModel commentModel)
         {
-            ProductModel productModel = new ProductModel();
-            UserModel userModel = new UserModel();
-            CommentDto commentDto = new CommentDto();
-
             var query = "INSERT INTO [Comments] (comment_text, created_date, email, product, session_id) " +
                         "VALUES (@comment_text, @created_date, @email, @product, @session_id) ";
 
@@ -78,14 +74,14 @@ namespace SQL_WEB_APPLICATION.Models.Repository
         #endregion
 
         #region Delete user comment
-        public async Task DeleteUserComment(CommentModel id)
+        public async Task DeleteUserComment(CommentDataObject comment_id)
         {
             var query = "DELETE [Comments] " +
                         "WHERE comment_id = @comment_id ";
 
             using (var connection = _context.CreateConnection())
             {
-                await connection.ExecuteAsync(query, id);
+                await connection.ExecuteAsync(query, comment_id);
             }
         }
         #endregion

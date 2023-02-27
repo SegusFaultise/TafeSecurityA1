@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models;
-using SQL_WEB_APPLICATION.Models.Dto;
+using SQL_WEB_APPLICATION.Models.DataObject;
 using SQL_WEB_APPLICATION.Models.Repository;
 using System.Text.RegularExpressions;
 #endregion
@@ -207,11 +207,11 @@ namespace SQL_WEB_APPLICATION.Controllers
         #region Checks if the inputed detials match an entry in the [User] table if so the deletes user
         [HttpDelete]
         [Route("DeleteUser")]
-        public async Task<IActionResult> DeleteUser(UserModel id)
+        public async Task<IActionResult> DeleteUser(UserDataObject userId)
         {
             try
             {
-                await _userRepository.DeleteUser(id);
+                await _userRepository.DeleteUser(userId);
                 return Json("ACCOUNT DELETED");
             }
             catch (Exception ex)

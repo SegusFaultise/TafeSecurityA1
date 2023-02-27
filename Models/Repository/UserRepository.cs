@@ -1,7 +1,7 @@
 ﻿#region Imports
 using Dapper;
 using SQL_WEB_APPLICATION.Context;
-using SQL_WEB_APPLICATION.Models.Dto;
+using SQL_WEB_APPLICATION.Models.DataObject;
 using System.Data;
 #endregion
 
@@ -86,14 +86,14 @@ namespace SQL_WEB_APPLICATION.Models.Repository
         #endregion
 
         #region Delete user account
-        public async Task DeleteUser(UserModel id)
+        public async Task DeleteUser(UserDataObject user_id)
         {
             var query = "DELETE [User] " +
                         "WHERE user_id = @user_id ";
 
             using (var connection = _context.CreateConnection())
             {
-                await connection.ExecuteAsync(query, id);
+                await connection.ExecuteAsync(query, user_id);
             }
         }
         #endregion
