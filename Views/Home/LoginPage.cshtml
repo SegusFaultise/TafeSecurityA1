@@ -14,9 +14,10 @@
                 <input type="email" placeholder="email.." id="email-input" />
 
                 <h2>password</h2>
+
                 <input type="password" placeholder="password.." id="password-input" />
                 <br />
-                <button id="login-button">Login</button>
+                <button type="submit" id="login-button">Login</button>
                 <br />
                 <a href="@Url.Action("SignUpPage", "Home")" class="sign-up">Sign up?</a>
                 <h4 id="login-error2">Incorect Login Details</h4>
@@ -59,8 +60,7 @@
                     type: "GET",
                     url: "@Url.Action("GetSessionId", "User")",
                     success: function (data) {
-                        sessionStorage.setItem("data", data)
-                        console.log(data)
+                        //sessionStorage.setItem("data", data)
                     }
                 })
 
@@ -82,6 +82,7 @@
                             loginError.hide()
                             emailInputClear
                             passwordInputClear
+                            sessionStorage.setItem("data", data)
                             sessionStorage.setItem("emailInput", emailInput)
                             sessionStorage.setItem("passwordInput", passwordInput)
                             email.val()
