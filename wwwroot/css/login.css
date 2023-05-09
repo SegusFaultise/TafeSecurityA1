@@ -18,6 +18,14 @@
     border-radius: 10px;
 }
 
+.file-picker {
+    margin-top: 30px;
+    border: solid;
+    border-width: 2px;
+    width: 24vh;
+    max-width: 30vh;
+}
+
 .login-good {
     text-transform: uppercase;
     font-family: Arial;

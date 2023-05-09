@@ -7,6 +7,18 @@
     <link rel="stylesheet" type="text/css" href="/css/products.css" />
 </head>
 
+<script>
+    var session_id = sessionStorage.getItem("data");
+
+    if (session_id == null) {
+        sessionStorage.removeItem("data");
+        sessionStorage.removeItem("emailInput");
+        sessionStorage.removeItem("passwordInput");
+        sessionStorage.removeItem("emailBox");
+        window.location.href = '@Url.Action("LoginPage", "Home")';
+    }
+</script>
+
 <body>
     <section>
         <div class="first-div">
@@ -92,6 +104,8 @@
         var priceInput = $("#price-input")
         var productNameInput = $("#product-input")
 
+
+        ////////////////////////// Start of Table builder methods ////////////////////////////
         /*Builds a table that displays all products,
         and if a new product is created the table
         will generate a new row*/
@@ -171,7 +185,9 @@
                 }
             }
         }
+        ////////////////////////// End of Table builder methods ////////////////////////////
 
+        ////////////////////////// Start of AJAX request ////////////////////////////
         /*Gets all prodcuts via an ajax GET request 
         linked to the product controller*/
 
@@ -322,5 +338,6 @@
 
             location.reload()
         })
+        ////////////////////////// End of AJAX request ////////////////////////////
     </script>
 </body>

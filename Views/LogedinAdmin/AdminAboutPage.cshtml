@@ -3,6 +3,18 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<script>
+    var session_id = sessionStorage.getItem("data");
+
+    if (session_id == null) {
+        sessionStorage.removeItem("data");
+        sessionStorage.removeItem("emailInput");
+        sessionStorage.removeItem("passwordInput");
+        sessionStorage.removeItem("emailBox");
+        window.location.href = '@Url.Action("LoginPage", "Home")';
+    }
+</script>
+
 <head>
     <link rel="stylesheet" type="text/css" href="/css/about.css" />
 </head>

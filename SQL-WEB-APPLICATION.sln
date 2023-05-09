@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQL-WEB-APPLICATION", "SQL-WEB-APPLICATION.csproj", "{5644C511-BE09-441D-B855-50630B7D0DFF}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TypicalTechTools", "..\TypicalTechTools\TypicalTechTools.sqlproj", "{6F9CCD80-349D-4E27-A8DA-B32033F4763E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{5644C511-BE09-441D-B855-50630B7D0DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5644C511-BE09-441D-B855-50630B7D0DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5644C511-BE09-441D-B855-50630B7D0DFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F9CCD80-349D-4E27-A8DA-B32033F4763E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F9CCD80-349D-4E27-A8DA-B32033F4763E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F9CCD80-349D-4E27-A8DA-B32033F4763E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6F9CCD80-349D-4E27-A8DA-B32033F4763E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F9CCD80-349D-4E27-A8DA-B32033F4763E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F9CCD80-349D-4E27-A8DA-B32033F4763E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

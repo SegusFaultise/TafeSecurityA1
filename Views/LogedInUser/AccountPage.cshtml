@@ -3,6 +3,18 @@
     Layout = "~/Views/Shared/_LogedInUser.cshtml";
 }
 
+<script>
+    var session_id = sessionStorage.getItem("data");
+
+    if (session_id == null) {
+        sessionStorage.removeItem("data");
+        sessionStorage.removeItem("emailInput");
+        sessionStorage.removeItem("passwordInput");
+        sessionStorage.removeItem("emailBox");
+        window.location.href = '@Url.Action("LoginPage", "Home")';
+    }
+</script>
+
 <head>
     <link rel="stylesheet" type="text/css" href="/css/login.css" />
 </head>
@@ -23,6 +35,17 @@
                 <br />
                 <br />
                 <input type="password" placeholder="update password.." id="password-input" />
+                <br />
+                <form method="post" enctype="multipart/form-data" asp-controller="LogedInUser" asp-action="ImageUpload">
+                    <input class="file-picker" type="file" name="file" />
+                    <br />
+                    <button type="submit" value="Uplaod">Upload</button>
+                </form>
+                <form method="post" asp-action="DownloadFile">
+                    <input type="text" placeholder="filename.png" name="fileName" />
+                    <br />
+                    <button type="submit">Download</button>
+                </form>
                 <br />
                 <button id="update-button">Update</button>
                 <br />
@@ -47,7 +70,7 @@
             passwordBox.val(passwordLoginInput)
             emailBox.val(emailLoginInput)
             sessionStorage.setItem("emailBox", emailBox.val())
-            
+
             var passwordBoxInput = $("#password-box").val()
             var emailBoxInput = $("#email-box").val()
             var passwordParam = "password=" + passwordBoxInput
@@ -131,8 +154,8 @@
                 dataType: "JSON",
                 data: Request,
                 success: function (data) {
-                        console.log(data)
-                        $("#user-id-box").val(data)
+                    console.log(data)
+                    $("#user-id-box").val(data)
                 }
             })
 
@@ -144,24 +167,24 @@
                 var updateError2 = $("#update-error2")
                 var openUrlLoginPage = "@Url.Action("LoginPage", "Home")"
 
-                    $.ajax({
-                        type: "DELETE",
-                        url: "@Url.Action("DeleteUser", "User")" + "?" + idParam,
-                        dataType: "JSON",
-                        data: Request,
-                        success: function (data) {
+                $.ajax({
+                    type: "DELETE",
+                    url: "@Url.Action("DeleteUser", "User")" + "?" + idParam,
+                    dataType: "JSON",
+                    data: Request,
+                    success: function (data) {
 
+                        console.log(data)
+
+                        if (data == "ACCOUNT DELETED") {
                             console.log(data)
-
-                            if (data == "ACCOUNT DELETED") {
-                                console.log(data)
-                                updateBox.val("")
-                                emailBox.val(emailInput)
-                                passwordBox.val(passwordInput)
-                                window.location.href = openUrlLoginPage
-                            }
+                            updateBox.val("")
+                            emailBox.val(emailInput)
+                            passwordBox.val(passwordInput)
+                            window.location.href = openUrlLoginPage
                         }
-                    })
+                    }
+                })
             })
         })
     </script>

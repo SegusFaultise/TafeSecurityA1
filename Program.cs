@@ -1,6 +1,7 @@
 #region Imports
 using SQL_WEB_APPLICATION.Context;
 using SQL_WEB_APPLICATION.Models.Repository;
+using SQL_WEB_APPLICATION.Services;
 using System.Runtime;
 #endregion
 
@@ -18,6 +19,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<FileUploaderService>();
+builder.Services.AddScoped<EncryptionService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSession(options =>

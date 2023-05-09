@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fD6nSTFppBsQVjMgbo7UJUcgbQ15BqywgkQReviRKGg=",
+  "Hash": "t2nEF9UhkNR/46eDjBIGebE7bfmR54ADzo9CN9TyHAk=",
   "Source": "SQL-WEB-APPLICATION",
   "BasePath": "_content/SQL-WEB-APPLICATION",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "SQL-WEB-APPLICATION\\wwwroot",
       "Source": "SQL-WEB-APPLICATION",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\css\\about.css",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\css\\about.css",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "css/about.css",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\css\\about.css"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\css\\login.css",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\css\\login.css",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "css/login.css",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\css\\navbar.css",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\css\\navbar.css",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "css/navbar.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\navbar.css"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\css\\products.css",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\css\\products.css",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "css/products.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\products.css"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\favicon.ico",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\images\\axville-WcrqKjgMPfI-unsplash.jpg",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\images\\axville-WcrqKjgMPfI-unsplash.jpg",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "images/axville-WcrqKjgMPfI-unsplash.jpg",
       "AssetKind": "All",
@@ -119,27 +119,10 @@
       "OriginalItemSpec": "wwwroot\\images\\axville-WcrqKjgMPfI-unsplash.jpg"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\images\\HD-wallpaper-gaming-keyboard-rgb-colors-gaming-gg-keyboard-lights-neon-pc-pcgaming-redragon-rgb.jpg",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\js\\site.js",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
-      "BasePath": "_content/SQL-WEB-APPLICATION",
-      "RelativePath": "images/HD-wallpaper-gaming-keyboard-rgb-colors-gaming-gg-keyboard-lights-neon-pc-pcgaming-redragon-rgb.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\HD-wallpaper-gaming-keyboard-rgb-colors-gaming-gg-keyboard-lights-neon-pc-pcgaming-redragon-rgb.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\js\\site.js",
-      "SourceId": "SQL-WEB-APPLICATION",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -153,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -170,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -187,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -204,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -221,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -238,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -255,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -272,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -289,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -306,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -323,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -340,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "SQL-WEB-APPLICATION",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
       "BasePath": "_content/SQL-WEB-APPLICATION",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -355,6 +338,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\Uploads\\dd.png",
+      "SourceId": "SQL-WEB-APPLICATION",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "BasePath": "_content/SQL-WEB-APPLICATION",
+      "RelativePath": "Uploads/dd.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\dd.png"
+    },
+    {
+      "Identity": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\Uploads\\supermarket-banner-concept-with-ingredients.jpg",
+      "SourceId": "SQL-WEB-APPLICATION",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\wwwroot\\",
+      "BasePath": "_content/SQL-WEB-APPLICATION",
+      "RelativePath": "Uploads/supermarket-banner-concept-with-ingredients.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\supermarket-banner-concept-with-ingredients.jpg"
     }
   ]
 }
