@@ -1847,24 +1847,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\wilso\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\wilso\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\SQL-WEB-APPLICATION.csproj",
+      "projectUniqueName": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\SQL-WEB-APPLICATION.csproj",
       "projectName": "SQL-WEB-APPLICATION",
-      "projectPath": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\SQL-WEB-APPLICATION.csproj",
+      "projectPath": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\SQL-WEB-APPLICATION.csproj",
       "packagesPath": "C:\\Users\\wilso\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\obj\\",
+      "outputPath": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\wilso\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1938,7 +1933,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

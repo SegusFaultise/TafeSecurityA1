@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X4958zWHHinkiQJlIuULnbd2fiRNdpKyUyuLxTJ3ZPiDWMbAJ5VYrkw4PU7Wn9Pv9GNAoGgunz2NVR7ZD4IJIw==",
+  "dgSpecHash": "7ROiT6j0C7SEZfwirh5Ap5kr7ue/J7LGck1H8UlAB6SdGIbByV+iA8O0kvMhVmzEyqhtL1kR3IJDesI9bYvjOw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\wilso\\Downloads\\TAFE_CODE_PROJECTS\\ICTDBS507_AT2_ZakkWilson-Christian_PART_1\\SQL-WEB-APPLICATION\\SQL-WEB-APPLICATION.csproj",
+  "projectFilePath": "C:\\Users\\wilso\\Source\\Repos\\NeuralNuts\\SQL-WEB-APPLICATION\\SQL-WEB-APPLICATION.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wilso\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\wilso\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
